@@ -53,7 +53,7 @@ shinyServer(function(input, output, session) {
     output$exppage <- renderUI({
         tabsetPanel(
             tabPanel(tags$b("Theses"), dataTableOutput("thesistable")),
-            tabPanel(tags$b("Presentations"), dataTableOutput("pretable"))
+            tabPanel(tags$b("Posters"), dataTableOutput("pretable"))
         )
     })
     
