@@ -124,6 +124,8 @@ shinyServer(function(input, output, session) {
             tags$li(point)
           })
         ),
+        tags$br(),
+        tags$br(),
         
         # Second section
         tags$b(textLines2[1]),
@@ -134,6 +136,8 @@ shinyServer(function(input, output, session) {
             tags$li(point)
           })
         ),
+        tags$br(),
+        tags$br(),
         
         # Third section
         tags$b(textLines3[1]),
@@ -144,6 +148,8 @@ shinyServer(function(input, output, session) {
             tags$li(point)
           })
         ),
+        tags$br(),
+        tags$br(),
         
         # Fourth section
         tags$b(textLines4[1]),
