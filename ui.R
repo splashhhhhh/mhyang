@@ -8,20 +8,20 @@ library(ggplot2)
 
 shinyUI(dashboardPage(
     
-    dashboardHeader(title = "Muhan Yang", titleWidth = 250, disable = FALSE,
+    dashboardHeader(title = "Muhan Yang", titleWidth = 230, disable = FALSE,
                     tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("twitter"), "Twitter", target = "_blank")),
-                    tags$li(class = "dropdown", tags$a(href = "www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
                     ),
     
     dashboardSidebar(
         sidebarMenu(
-            menuItem(text = "About", tabName = "about", icon = icon("bullseye")), 
+            menuItem(text = "About", tabName = "about", icon = icon("bullseye")),
+            menuItem(text = "Education", tabName = "edu", icon = icon("brush")),
             menuItem(text = "Research", tabName = "research", icon = icon("flag"),  
                      menuSubItem("Experiences", tabName = "exp"),
                      menuSubItem("Projects", tabName = "proj")),
-            menuItem(text = "Teaching", tabName = "teach", icon = icon("brush"), badgeLabel = "new", badgeColor = "green"),
-            menuItem(text = "Misc.", tabName = "misc", icon = icon("heart"), badgeLabel = "hot", badgeColor = "maroon"),
+            menuItem(text = "Misc.", tabName = "misc", icon = icon("heart")),
             menuItem(text = "CV", tabName = "cv", icon = icon("code"))
         )
     ),
@@ -30,13 +30,7 @@ shinyUI(dashboardPage(
         tabItems(
              tabItem(tabName = "about", uiOutput("indexpage")),
              
-             tabItem(tabName = "exp", uiOutput("exppage")),
-             
-             tabItem(tabName = "proj", fluidRow(
-                 infoBoxOutput("proj1", width = 6), infoBoxOutput("proj2", width = 6), infoBoxOutput("proj3", width = 6)
-             )),
-             
-             tabItem(tabName = "teach", fluidRow(
+             tabItem(tabName = "edu", fluidRow(
                  box(title = "Updates", width = 9, uiOutput("updates"),
                      status = "danger", solidHeader = T),
                  box(title = "My Office Hours", width = 7, uiOutput("ofappoint"),
@@ -45,6 +39,12 @@ shinyUI(dashboardPage(
                      status = "primary", solidHeader = T, collapsible = T),
                  box(title = "Past Classes", width = 9, dataTableOutput("pastclass"),
                      status = "success", solidHeader = T, collapsible = T)
+             )),
+             
+             tabItem(tabName = "exp", uiOutput("exppage")),
+             
+             tabItem(tabName = "proj", fluidRow(
+               infoBoxOutput("proj1", width = 6), infoBoxOutput("proj2", width = 6), infoBoxOutput("proj3", width = 6)
              )),
              
              tabItem(tabName = "misc", 

@@ -12,36 +12,36 @@ shinyServer(function(input, output, session) {
     output$indexpage <- renderUI({
         sidebarLayout(position = "left",
             sidebarPanel(width = 4,
-                tags$img(src = "headshot.jpeg", height = 200, width = 180, 
+                tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h3(tags$b("Muhan Yang")),
-                h5("Pronunciation: 'm-oo-h-uh-n'"),
+                h2(tags$b("Muhan Yang | 杨 慕 涵")),
+                h4("Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),
                 
-                h4(tags$b("Education")),
-                h5("B.A. (Hons), University of British Columbia, 2021 - 2025"),
+                h3(tags$b("Education")),
+                h4("B.A. (Hons), University of British Columbia (2021 - 2025)"),
                 h5("Major: Psychology"),
                 h5("Minor: Data Science"),
                 
                 hr(),
                 
-                h5(tags$b("Current Positions")),
-                h5("Fourth-year Honours Thesis Student & Research Assistant, The Rights Lab, Sept. 2023 - "),
-                h5("Research Assistant, UBC SEM Lab, Jan. 2024 - "),
-                
-                hr(),
-                
-                h5(tags$b("Contact")),
-                h5("Email: muhanyangpsych@gmail.com"),
-                h5("Phone: (604) 727-0895")
+                h3(tags$b("Contact")),
+                h4("Email: ", HTML('<a href="mailto:muhanyangpsych@gmail.com">muhanyangpsych@gmail.com</a>')),
+                h4("Phone: (604) 727-0895")
 
             ),
             
             mainPanel(
-                h4("Hi, welcome to my website!"),
-                h4("Born and raised in Beijing, I am a fourth-year Honours Psychology student with a minor in Data Science at the University of British Columbia."),
-                h4("I aspire to be a quantitative psychologist and my research interest largely lies in the longitudinal data analysis in the methodology, including Multilevel Modelling (MLM) and Structural Equation Modelling (SEM). Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology."),
+                h4("Hi there, welcome to my website!"),
+                hr(),
+                h4("Born and raised in Beijing, I am a fourth-year ", tags$b("Honours Psychology"), "student with a minor in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia"), "."),
+                hr(),
+                h4("I aspire to be a ", tags$em("quantitative psychologist/methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in the methodology, including ", 
+                   tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), "."),
+                hr(),
+                h4("Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is around learning to build Shiny App and develop R packages. Due to time constraints, I edited based on a template code, but I hope you enjoy my Shiny Dashboard website so far!"),
+                hr(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
                 
