@@ -1,0 +1,10 @@
+name: website-using-shiny
+title:
+username: muhanyang
+account: muhanyang
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12701175
+bundleId: 9095914
+url: https://muhanyang.shinyapps.io/website-using-shiny/
+version: 1

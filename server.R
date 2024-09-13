@@ -12,7 +12,7 @@ shinyServer(function(input, output, session) {
     output$indexpage <- renderUI({
         sidebarLayout(position = "left",
             sidebarPanel(width = 4,
-                tags$img(src = "headshot.jpeg", height = 200, width = 160, 
+                tags$img(src = "headshot.jpeg", height = 200, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
                 h3(tags$b("Muhan Yang")),
                 h5("Pronunciation: 'm-oo-h-uh-n'"),
@@ -20,7 +20,7 @@ shinyServer(function(input, output, session) {
                 hr(),
                 
                 h4(tags$b("Education")),
-                h4("B.A. (Hons), University of British Columbia, 2021 - 2025"),
+                h5("B.A. (Hons), University of British Columbia, 2021 - 2025"),
                 h5("Major: Psychology"),
                 h5("Minor: Data Science"),
                 
@@ -39,13 +39,12 @@ shinyServer(function(input, output, session) {
             ),
             
             mainPanel(
-                h4("Hi, welcom to my website!"),
+                h4("Hi, welcome to my website!"),
                 h4("Born and raised in Beijing, I am a fourth-year Honours Psychology student with a minor in Data Science at the University of British Columbia."),
                 h4("I aspire to be a quantitative psychologist and my research interest largely lies in the longitudinal data analysis in the methodology, including Multilevel Modelling (MLM) and Structural Equation Modelling (SEM). Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology."),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
-                tags$img(src = "img.jpg", height = 600, width = 400, 
-                         style="display: block; margin-left: auto; margin-right: auto;")
+                
             )
         )
     })
