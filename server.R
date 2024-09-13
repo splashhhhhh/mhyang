@@ -49,7 +49,7 @@ shinyServer(function(input, output, session) {
         )
     })
     
-    # paper page ----
+    # projects page ----
     output$exppage <- renderUI({
         tabsetPanel(
             tabPanel(tags$b("Theses"), dataTableOutput("thesistable")),
@@ -65,27 +65,83 @@ shinyServer(function(input, output, session) {
         pre
     })
     
-    # project page ----
-    output$proj1 <- renderInfoBox({
-        infoBox(title = "Kaggle", value = "Titanic Data Analysis", 
-                subtitle = "This is a comprehensive data report on the dataset titanic,...", icon = icon("arrow-up"),
-                href = "https://www.google.com")
+    # experiences page ----
+    output$projpage <- renderUI({
+      textLines1 <- c(
+        "Research Assistant @ UBC Structural Equation Modelling (SEM) Lab | ",
+        "PI: Victoria Savalei",
+        "January 2024 - Present"
+      )
+      bulletPoints1 <- c("First bullet point of the first list", "Second bullet point of the first list")
+      
+      # Section 2: Text lines followed by bullet points
+      textLines2 <- c(
+        "Fourth-year Honours Thesis Student & Research Assistant @ The Rights Lab | ",
+        "PI: Jason Rights",
+        "September 2023 - Present"
+      )
+      bulletPoints2 <- c("First bullet point of the second list", "Second bullet point of the second list", "Third bullet point of the second list")
+      
+      # Section 3: Text lines followed by bullet points
+      textLines3 <- c(
+        "Third-year Honours Thesis Student & Research Assistant @ Child and Teen Studies Lab | ",
+        "PI: Catherine Ann Cameron",
+        "September 2023 - June 2024"
+      )
+      bulletPoints3 <- c("First bullet point of the second list", "Second bullet point of the second list", "Third bullet point of the second list")
+      
+      # Section 4: Text lines followed by bullet points
+      textLines4 <- c(
+        "Research Assistant @ Social Health Lab | ",
+        "PI: Frances Chen",
+        "September 2022 - September 2023"
+      )
+      bulletPoints4 <- c("First bullet point of the second list", "Second bullet point of the second list", "Third bullet point of the second list")
+      
+      tagList(
+        # First section
+        tags$b(textLines1[1]),
+        tags$em(textLines1[2]),
+        tags$p(textLines1[3]),
+        tags$ul(
+          lapply(bulletPoints1, function(point) {
+            tags$li(point)
+          })
+        ),
+        
+        # Second section
+        tags$b(textLines2[1]),
+        tags$em(textLines2[2]),
+        tags$p(textLines2[3]),
+        tags$ul(
+          lapply(bulletPoints2, function(point) {
+            tags$li(point)
+          })
+        ),
+        
+        # Third section
+        tags$b(textLines3[1]),
+        tags$em(textLines3[2]),
+        tags$p(textLines3[3]),
+        tags$ul(
+          lapply(bulletPoints3, function(point) {
+            tags$li(point)
+          })
+        ),
+        
+        # Fourth section
+        tags$b(textLines4[1]),
+        tags$em(textLines4[2]),
+        tags$p(textLines4[3]),
+        tags$ul(
+          lapply(bulletPoints4, function(point) {
+            tags$li(point)
+          })
+        )
+      )
     })
-    
-    output$proj2 <- renderInfoBox({
-        infoBox(title = "Contest", value = "A Dynamic Model on Transportation",
-                subtitle = "How to manage and optimize the transportation system?", icon = icon("check"), color = 'yellow',
-                href = "https://www.bing.com")
-    })
-    
-    output$proj3 <- renderInfoBox({
-        infoBox(title = "Software", value = "An R Package to Solve RegNN Problem",
-                subtitle = "The penalized neural networks.", icon = icon("box"), color = 'maroon',
-                href = "https://www.github.com")
-    })
-    
-    # teach page ----
-    output$updates <- renderUI({list(
+    # edu page ----
+    output$edu <- renderUI({list(
         tags$li("May 12th: Please check the Canvas for class materials."),
         tags$li("May 11th: Assignment 2 is coming out.")
     )

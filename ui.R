@@ -19,8 +19,8 @@ shinyUI(dashboardPage(
             menuItem(text = "About", tabName = "about", icon = icon("bullseye")),
             menuItem(text = "Education", tabName = "edu", icon = icon("brush")),
             menuItem(text = "Research", tabName = "research", icon = icon("flag"),  
-                     menuSubItem("Experiences", tabName = "exp"),
-                     menuSubItem("Projects", tabName = "proj")),
+                     menuSubItem("Projects", tabName = "exp"),
+                     menuSubItem("Experiences", tabName = "proj")),
             menuItem(text = "Misc.", tabName = "misc", icon = icon("heart")),
             menuItem(text = "CV", tabName = "cv", icon = icon("code"))
         )
@@ -31,7 +31,7 @@ shinyUI(dashboardPage(
              tabItem(tabName = "about", uiOutput("indexpage")),
              
              tabItem(tabName = "edu", fluidRow(
-                 box(title = "Updates", width = 9, uiOutput("updates"),
+                 box(title = "Updates", width = 9, uiOutput("edu"),
                      status = "danger", solidHeader = T),
                  box(title = "My Office Hours", width = 7, uiOutput("ofappoint"),
                      status = "warning", solidHeader = T, collapsible = T),
@@ -43,9 +43,7 @@ shinyUI(dashboardPage(
              
              tabItem(tabName = "exp", uiOutput("exppage")),
              
-             tabItem(tabName = "proj", fluidRow(
-               infoBoxOutput("proj1", width = 6), infoBoxOutput("proj2", width = 6), infoBoxOutput("proj3", width = 6)
-             )),
+             tabItem(tabName = "proj", uiOutput("projpage")),
              
              tabItem(tabName = "misc", 
                      fluidRow(
