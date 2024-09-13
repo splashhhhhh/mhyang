@@ -20,7 +20,7 @@ shinyServer(function(input, output, session) {
                 hr(),
                 
                 h3(tags$b("Education")),
-                h4("B.A. (Hons), University of British Columbia (2021 - 2025)"),
+                h4("B.A. (Hons), University of British Columbia, 2021 - 2025"),
                 h5("Major: Psychology"),
                 h5("Minor: Data Science"),
                 
