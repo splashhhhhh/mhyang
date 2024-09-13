@@ -16,7 +16,7 @@ shinyUI(dashboardPage(
     
     dashboardSidebar(
         sidebarMenu(
-            menuItem(text = "About", tabName = "about", icon = icon("bullseye")),
+            menuItem(text = "About Me", tabName = "about", icon = icon("bullseye")),
             menuItem(text = "Education", tabName = "edu", icon = icon("brush")),
             menuItem(text = "Research", tabName = "research", icon = icon("flag"),  
                      menuSubItem("Projects", tabName = "exp"),
