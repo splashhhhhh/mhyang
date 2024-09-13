@@ -41,7 +41,7 @@ shinyServer(function(input, output, session) {
                    tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), "."),
                 hr(),
                 h4("Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages. Due to time constraints in the application season, the general structure of this website was adapted from",
-                   HTML('<a href="https://github.com/Xiaozhu-Zhang1998/website-using-shiny">a template</a>'),", but I hope you enjoy my Shiny Dashboard website so far!"),
+                   HTML('<a href="https://github.com/Xiaozhu-Zhang1998/website-using-shiny">a template</a>'),", but I've made some necessary changes and I hope you enjoy my Shiny Dashboard website so far!"),
                 hr(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
@@ -73,8 +73,10 @@ shinyServer(function(input, output, session) {
         "PI: Victoria Savalei",
         "January 2024 - Present"
       )
-      bulletPoints1 <- c("First bullet point of the first list", 
-                         "Second bullet point of the first list")
+      bulletPoints1 <- c("Mastered SEM basics through PSYC 546Y SEM I graduate course materials", 
+                         "Conducted a literature review on Random-Intercepts Cross-Lagged Panel Model (RI-CLPM) simulation",
+                         "Extended the simulation in Mulder (2023) to other conditions and conducted a report",
+                         "Self-learned R Shiny")
       
       # Section 2: Text lines followed by bullet points
       textLines2 <- c(
@@ -82,9 +84,10 @@ shinyServer(function(input, output, session) {
         "PI: Jason Rights",
         "September 2023 - Present"
       )
-      bulletPoints2 <- c("First bullet point of the second list", 
-                         "Second bullet point of the second list", 
-                         "Third bullet point of the second list")
+      bulletPoints2 <- c("Skilled in Multilevel Modelling (MLM) via literature reading, biweekly discussion with graduate student, and PSYC 546J MLM graduate course", 
+                         "Performed a literature review with 100+ articles on Intra-Class Correlation (ICC) in MLM", 
+                         "Drafted an empirical example and got training in running simulation of the ICC project",
+                         "Assisted adjusted R-squared manuscript: searched related literature and proofread before submission")
       
       # Section 3: Text lines followed by bullet points
       textLines3 <- c(
@@ -92,9 +95,10 @@ shinyServer(function(input, output, session) {
         "PI: Catherine Ann Cameron",
         "September 2023 - June 2024"
       )
-      bulletPoints3 <- c("First bullet point of the second list", 
-                         "Second bullet point of the second list", 
-                         "Third bullet point of the second list")
+      bulletPoints3 <- c("Completed data entry based on interview responses and data cleaning using SPSS", 
+                         "Guided and mentored junior lab members to use SPSS and R in data cleaning", 
+                         "Contacted parents, scheduled sessions, collected consents, and managed consent forms and session recordings on Globus",
+                         "Coordinated a 5-person team to draft the APS Convention 2024 poster submission")
       
       # Section 4: Text lines followed by bullet points
       textLines4 <- c(
@@ -102,9 +106,9 @@ shinyServer(function(input, output, session) {
         "PI: Frances Chen",
         "September 2022 - September 2023"
       )
-      bulletPoints4 <- c("First bullet point of the second list", 
-                         "Second bullet point of the second list", 
-                         "Third bullet point of the second list")
+      bulletPoints4 <- c("Collected and entered ∼80 pieces of data in Teen Studies project and TSST Simulated Online Interview project, including saliva sample collection", 
+                         "Conducted Trier Social Stress Test (TSST) interview, parent reconsent, and medication record entry", 
+                         "Assisted graduate students with mock phone screen practice using DSM-V")
       
       tagList(
         # First section
