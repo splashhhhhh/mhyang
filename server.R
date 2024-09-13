@@ -5,6 +5,7 @@ library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
 library(ggplot2)
+library(DT)
 
 shinyServer(function(input, output, session) {
     
@@ -59,11 +60,14 @@ shinyServer(function(input, output, session) {
     })
     
     output$thesistable <- renderDataTable({
-        thesis
+        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
+        datatable(thesis, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE))
     })
     
     output$pretable <- renderDataTable({
-        pre
+        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
+        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
+        datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE))
     })
     
     # experiences page ----
