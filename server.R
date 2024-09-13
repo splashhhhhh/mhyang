@@ -35,12 +35,13 @@ shinyServer(function(input, output, session) {
             mainPanel(
                 h4("Hi there, welcome to my website!"),
                 hr(),
-                h4("Born and raised in Beijing, I am a fourth-year ", tags$b("Honours Psychology"), "student with a minor in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "."),
+                h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student with a minor in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
                 hr(),
                 h4("I aspire to be a ", tags$em("quantitative psychologist/methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in the methodology, including ", 
                    tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), "."),
                 hr(),
-                h4("Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages. Due to time constraints in the application season, I created the website based on a template of the overall structure, but I hope you enjoy my Shiny Dashboard website so far!"),
+                h4("Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages. Due to time constraints in the application season, the general structure of this website was adapted from",
+                   HTML('<a href="https://github.com/Xiaozhu-Zhang1998/website-using-shiny">a template</a>'),", but I hope you enjoy my Shiny Dashboard website so far!"),
                 hr(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
@@ -72,7 +73,8 @@ shinyServer(function(input, output, session) {
         "PI: Victoria Savalei",
         "January 2024 - Present"
       )
-      bulletPoints1 <- c("First bullet point of the first list", "Second bullet point of the first list")
+      bulletPoints1 <- c("First bullet point of the first list", 
+                         "Second bullet point of the first list")
       
       # Section 2: Text lines followed by bullet points
       textLines2 <- c(
@@ -80,7 +82,9 @@ shinyServer(function(input, output, session) {
         "PI: Jason Rights",
         "September 2023 - Present"
       )
-      bulletPoints2 <- c("First bullet point of the second list", "Second bullet point of the second list", "Third bullet point of the second list")
+      bulletPoints2 <- c("First bullet point of the second list", 
+                         "Second bullet point of the second list", 
+                         "Third bullet point of the second list")
       
       # Section 3: Text lines followed by bullet points
       textLines3 <- c(
@@ -88,7 +92,9 @@ shinyServer(function(input, output, session) {
         "PI: Catherine Ann Cameron",
         "September 2023 - June 2024"
       )
-      bulletPoints3 <- c("First bullet point of the second list", "Second bullet point of the second list", "Third bullet point of the second list")
+      bulletPoints3 <- c("First bullet point of the second list", 
+                         "Second bullet point of the second list", 
+                         "Third bullet point of the second list")
       
       # Section 4: Text lines followed by bullet points
       textLines4 <- c(
@@ -96,7 +102,9 @@ shinyServer(function(input, output, session) {
         "PI: Frances Chen",
         "September 2022 - September 2023"
       )
-      bulletPoints4 <- c("First bullet point of the second list", "Second bullet point of the second list", "Third bullet point of the second list")
+      bulletPoints4 <- c("First bullet point of the second list", 
+                         "Second bullet point of the second list", 
+                         "Third bullet point of the second list")
       
       tagList(
         # First section
