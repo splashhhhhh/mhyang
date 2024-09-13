@@ -12,36 +12,37 @@ shinyServer(function(input, output, session) {
     output$indexpage <- renderUI({
         sidebarLayout(position = "left",
             sidebarPanel(width = 4,
-                tags$img(src = "avatar.jpeg", height = 200, width = 160, 
+                tags$img(src = "headshot.jpeg", height = 200, width = 160, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h4(tags$b("Ph.D in Statistics, Shiny University")), 
+                h3(tags$b("Muhan Yang")),
+                h5("Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),
                 
-                h5(tags$b("Education")),
-                h5("Ph.D in Statistics, Shiny University, 2022 - 2027"),
-                h5("M.S. in Math, RStudio University, 2020 - 2022"),
-                h5("B.S. in Computer Science, R University, 2016 - 2020"),
+                h4(tags$b("Education")),
+                h4("B.A. (Hons), University of British Columbia, 2021 - 2025"),
+                h5("Major: Psychology"),
+                h5("Minor: Data Science"),
                 
                 hr(),
                 
-                h5(tags$b("Experiences")),
-                h5("Teaching Assistant, Shiny University, Jan - April, 2023"),
-                h5("Internship, Facebook, June 2022"),
-                h5("Visiting Student, Python University, Spring 2019"),
+                h5(tags$b("Current Positions")),
+                h5("Fourth-year Honours Thesis Student & Research Assistant, The Rights Lab, Sept. 2023 - "),
+                h5("Research Assistant, UBC SEM Lab, Jan. 2024 - "),
                 
                 hr(),
                 
                 h5(tags$b("Contact")),
-                h5("Email: xxx@gmail.com"),
-                h5("Phone: (xxx) xxx-xxxx")
+                h5("Email: muhanyangpsych@gmail.com"),
+                h5("Phone: (604) 727-0895")
 
             ),
             
             mainPanel(
                 h4("Hi, welcom to my website!"),
-                h4("I am currently a..., and my interests lie in..."),
-                h4("If you have any questions, don't hesitate to contact me!"),
+                h4("Born and raised in Beijing, I am a fourth-year Honours Psychology student with a minor in Data Science at the University of British Columbia."),
+                h4("I aspire to be a quantitative psychologist and my research interest largely lies in the longitudinal data analysis in the methodology, including Multilevel Modelling (MLM) and Structural Equation Modelling (SEM). Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology."),
+                h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
                 tags$img(src = "img.jpg", height = 600, width = 400, 
                          style="display: block; margin-left: auto; margin-right: auto;")
@@ -50,7 +51,7 @@ shinyServer(function(input, output, session) {
     })
     
     # paper page ----
-    output$pubpage <- renderUI({
+    output$exppage <- renderUI({
         tabsetPanel(
             tabPanel(tags$b("Theses"), dataTableOutput("thesistable")),
             tabPanel(tags$b("Publications"), dataTableOutput("pubstable")),

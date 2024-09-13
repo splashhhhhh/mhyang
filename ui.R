@@ -8,18 +8,17 @@ library(ggplot2)
 
 shinyUI(dashboardPage(
     
-    dashboardHeader(title = "My Personal Website", titleWidth = 250, disable = FALSE,
-                    tags$li(class = "dropdown", tags$a(href = "https://www.facebook.com", icon("facebook"), "Facebook", target = "_blank")),
-                    tags$li(class = "dropdown", tags$a(href = "https://www.twitter.com", icon("twitter"), "Twitter", target = "_blank")),
-                    tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com", icon("linkedin"), "LinkedIn", target = "_blank")),
-                    tags$li(class = "dropdown", tags$a(href = "https://www.github.com", icon("github"), "GitHub", target = "_blank"))
+    dashboardHeader(title = "Muhan Yang", titleWidth = 250, disable = FALSE,
+                    tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("twitter"), "Twitter", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
                     ),
     
     dashboardSidebar(
         sidebarMenu(
             menuItem(text = "About", tabName = "about", icon = icon("bullseye")), 
             menuItem(text = "Research", tabName = "research", icon = icon("flag"),  
-                     menuSubItem("Papers", tabName = "pub"),
+                     menuSubItem("Experiences", tabName = "exp"),
                      menuSubItem("Projects", tabName = "proj")),
             menuItem(text = "Teaching", tabName = "teach", icon = icon("brush"), badgeLabel = "new", badgeColor = "green"),
             menuItem(text = "Misc.", tabName = "misc", icon = icon("heart"), badgeLabel = "hot", badgeColor = "maroon"),
@@ -31,7 +30,7 @@ shinyUI(dashboardPage(
         tabItems(
              tabItem(tabName = "about", uiOutput("indexpage")),
              
-             tabItem(tabName = "pub", uiOutput("pubpage")),
+             tabItem(tabName = "exp", uiOutput("exppage")),
              
              tabItem(tabName = "proj", fluidRow(
                  infoBoxOutput("proj1", width = 6), infoBoxOutput("proj2", width = 6), infoBoxOutput("proj3", width = 6)
