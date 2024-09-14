@@ -39,10 +39,7 @@ shinyServer(function(input, output, session) {
                 h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student with a minor in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
                 hr(),
                 h4("I aspire to be a ", tags$em("quantitative psychologist/methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in the methodology, including ", 
-                   tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), "."),
-                hr(),
-                h4("Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages. Due to time constraints in the application season, the general structure of this website was adapted from",
-                   HTML('<a href="https://github.com/Xiaozhu-Zhang1998/website-using-shiny">a template</a>'),", but I've made some necessary changes and I hope you enjoy my Shiny Dashboard website so far!"),
+                   tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages."),
                 hr(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
@@ -52,7 +49,7 @@ shinyServer(function(input, output, session) {
     })
     
     # projects page ----
-    output$exppage <- renderUI({
+    output$projpage <- renderUI({
         tabsetPanel(
             tabPanel(tags$b("Theses"), dataTableOutput("thesistable")),
             tabPanel(tags$b("Posters"), dataTableOutput("pretable"))
@@ -70,8 +67,8 @@ shinyServer(function(input, output, session) {
         datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE))
     })
     
-    # experiences page ----
-    output$projpage <- renderUI({
+    # experience page ----
+    output$exppage <- renderUI({
       textLines1 <- c(
         "Research Assistant @ UBC Structural Equation Modelling (SEM) Lab | ",
         "PI: Victoria Savalei",
