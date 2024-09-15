@@ -48,6 +48,10 @@ shinyUI(dashboardPage(
     ),
     
     dashboardBody(
+      tags$head(
+        tags$title("Muhan Yang"),
+        tags$link(rel = "icon", type = "image/png", href = "www/yang.png")
+      ),
         tabItems(
              tabItem(tabName = "about", uiOutput("indexpage")),
              
