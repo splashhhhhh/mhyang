@@ -33,8 +33,8 @@ shinyUI(dashboardPage(
             menuItem(text = "About Me", tabName = "about", icon = icon("star")),
             menuItem(text = "Education", tabName = "edu", icon = icon("user-graduate")),
             menuItem(text = "Research", tabName = "research", icon = icon("brain"),  
-                     menuSubItem(" Projects", tabName = "proj"),
-                     menuSubItem(" Experiences", tabName = "exp")),
+                     menuSubItem("Projects", tabName = "proj"),
+                     menuSubItem("Experiences", tabName = "exp")),
             menuItem(text = "Misc.", tabName = "misc", icon = icon("heart")),
             menuItem(text = "CV", tabName = "cv", icon = icon("code")),
             tags$div(

@@ -15,17 +15,18 @@ shinyServer(function(input, output, session) {
             sidebarPanel(width = 4,
                 tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h2(tags$b("Muhan Yang | 杨 慕 涵")),
-                h4("Pronunciation: 'm-oo-h-uh-n'"),
+                h1(style = "text-align: center;", tags$b(style = "font-size: 30px;",
+                          "Muhan Yang | 杨 慕 涵")),
+                h4(style = "text-align: center;", "Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),
                 
-                h3(tags$b("Education")),
-                h4("B.A. (Hons), University of British Columbia, 2021 - 2025"),
-                h5("Major: Psychology"),
-                h5("Minor: Data Science"),
-                
-                hr(),
+                # h3(tags$b("Education")),
+                # h4("B.A. (Hons), University of British Columbia, 2021 - 2025"),
+                # h5("Major: Psychology"),
+                # h5("Minor: Data Science"),
+                # 
+                # hr(),
                 
                 h3(tags$b("Contact")),
                 h4("Email: ", HTML('<a href="mailto:muhanyangpsych@gmail.com">muhanyangpsych@gmail.com</a>')),
@@ -77,7 +78,8 @@ shinyServer(function(input, output, session) {
       bulletPoints1 <- c("Mastered SEM basics through PSYC 546Y SEM I graduate course materials", 
                          "Conducted a literature review on Random-Intercepts Cross-Lagged Panel Model (RI-CLPM) simulation",
                          "Extended the simulation in Mulder (2023) to other conditions and conducted a report",
-                         "Self-learned R Shiny")
+                         "Self-learned R Shiny",
+                         "Will be conducting an independent project on the simulation of RI-CLPM and build a Shiny App")
       
       # Section 2: Text lines followed by bullet points
       textLines2 <- c(
@@ -99,7 +101,7 @@ shinyServer(function(input, output, session) {
       bulletPoints3 <- c("Completed data entry based on interview responses and data cleaning using SPSS", 
                          "Guided and mentored junior lab members to use SPSS and R in data cleaning", 
                          "Contacted parents, scheduled sessions, collected consents, and managed consent forms and session recordings on Globus",
-                         "Coordinated a 5-person team to draft the APS Convention 2024 poster submission")
+                         "Coordinated a team of 5 to draft the APS Convention 2024 poster submission")
       
       # Section 4: Text lines followed by bullet points
       textLines4 <- c(
@@ -113,155 +115,93 @@ shinyServer(function(input, output, session) {
       
       tagList(
         # First section
-        tags$b(textLines1[1]),
-        tags$em(textLines1[2]),
-        tags$p(textLines1[3]),
-        tags$ul(
+        tags$h4(
+          tags$b(textLines1[1]),
+          tags$em(textLines1[2]),
+          tags$p(textLines1[3])),
+        tags$h4(tags$ul(
           lapply(bulletPoints1, function(point) {
             tags$li(point)
           })
-        ),
-        tags$br(),
+        )),
         tags$br(),
         
         # Second section
-        tags$b(textLines2[1]),
-        tags$em(textLines2[2]),
-        tags$p(textLines2[3]),
-        tags$ul(
+        tags$h4(
+          tags$b(textLines2[1]),
+          tags$em(textLines2[2]),
+          tags$p(textLines2[3])),
+        tags$h4(tags$ul(
           lapply(bulletPoints2, function(point) {
             tags$li(point)
           })
-        ),
-        tags$br(),
+        )),
         tags$br(),
         
         # Third section
-        tags$b(textLines3[1]),
-        tags$em(textLines3[2]),
-        tags$p(textLines3[3]),
-        tags$ul(
+        tags$h4(
+          tags$b(textLines3[1]),
+          tags$em(textLines3[2]),
+          tags$p(textLines3[3])),
+        tags$h4(tags$ul(
           lapply(bulletPoints3, function(point) {
             tags$li(point)
           })
-        ),
-        tags$br(),
+        )),
         tags$br(),
         
         # Fourth section
-        tags$b(textLines4[1]),
-        tags$em(textLines4[2]),
-        tags$p(textLines4[3]),
-        tags$ul(
+        tags$h4(
+          tags$b(textLines4[1]),
+          tags$em(textLines4[2]),
+          tags$p(textLines4[3])),
+        tags$h4(tags$ul(
           lapply(bulletPoints4, function(point) {
             tags$li(point)
           })
-        )
+        ))
       )
     })
-    # edu page ----
-    output$edu <- renderUI({list(
-        tags$li("May 12th: Please check the Canvas for class materials."),
-        tags$li("May 11th: Assignment 2 is coming out.")
-    )
+    # education page ----
+    output$edupage <- renderUI({
+      undergrad <- c("B.A. (Hons.), The University of British Columbia ",
+                     "2021 - 2025 (Expected)",
+                     "Major: Psychology | Minor: Data Science",
+                     "Relevant Coursework: ")
+      courses <- c("PSYC 303 - Tests and Measurements",
+                   "PSYC 359 - Advanced Research Methods in Behavioural Sciences",
+                   "PSYC 417 - Special Topics in Psychology: Applied Regression Analysis",
+                   "PSYC 546J - Seminar in Psychological Problems: Multilevel Model (graduate course)",
+                   "PSYC 546Y - Seminar in Psychological Problems: Structural Equation Model I (graduate course; self-learned through 2021W materials)",
+                   "STAT 201 - Statistical Inference for Data Science",
+                   "STAT 301 - Statistical Modelling for Data Science",
+                   "MATH 221 - Matrix Algebra",
+                   "DSCI 320 - Visualization for Data Science",
+                   "CPSC 330 - Applied Machine Learning",
+                   "CPSC 368  - Databases in Data Science (ongoing)")
+      
+      tagList(
         
-    })
-    
-    output$curclass <- renderTable({
-        class1
-    })
-    
-    output$pastclass <- renderDataTable({
-        class2
-    })
-    
-    output$ofappoint <- renderUI({
-        lst <- list(
-            p1 = p("If you have any problems over the classes, assignments, or exams and want to talk to me, please make an appointment on W/F."),
-            p2 = p("There would be 15 slots available each day."),
-            d1 = dateInput("date", "Please select a date", value = Sys.Date(), min = Sys.Date() + 1, max = Sys.Date() + 21, daysofweekdisabled = c(0,1,2,4,6), width = '40%'),
-            u1 = uiOutput("checkava"),
-            t1 = textInput("name", "Please input your name", width = "40%"),
-            t2 = textInput("password", "Please input your password", width = "40%"),
-            u2 = useShinyalert(),
-            a1 = actionButton("make", "Make an appointment"),
-            a2 = actionButton("check", "Check appointments"),
-            a3 = actionButton("del", "Delete the appointment")
+        # undergrad overall section
+        tags$h4(
+          tags$p(
+          tags$b(undergrad[1]),
+          tags$em(style = "margin-left: 50px;", undergrad[2])),
+          tags$p(undergrad[3]),
+          tags$p(tags$em(undergrad[4]))
+        ),
+        # courses
+        tags$h4(tags$ul(
+          lapply(courses, function(point) {
+            tags$li(point)
+          })
         )
-        return(lst)
-    })
-    
-    output$checkava <- renderUI({
-        if(length(input$date) == 0)
-            return()
-        else{
-            dat <- read.table("slots.csv", sep = ',', header = T)
-            sub <- subset(dat, Date == as.character(input$date))
-            p(paste(nrow(sub), "slot(s) occupied."))
-        }
-    })
-    
-    observeEvent(input$make, {
-        # check whether full information
-        if(length(input$date) == 0 | input$name == "" | input$password == ""){
-            shinyalert("Alert", "Please input full information!", type = "error")
-        }
-        else{
-            dat <- read.table("slots.csv", sep = ',', header = T)
-            # check whether exist
-            sub <- subset(dat, Date == as.character(input$date) & Name == input$name & Password == input$password)
-            if(nrow(sub) != 0){
-                shinyalert("Alert", "You have made an appointment on this day!", type = "error")
-            }
-            else{
-                # check whether available
-                count <- sum(dat$Date == as.character(input$date))
-                if(count >= 15){
-                    shinyalert("Alert", "The office hour capacity is full on this day!", type = "error")
-                }
-                else{
-                    record <- c(as.character(input$date), input$name, input$password)
-                    dat <- rbind(dat, record)
-                    write.csv(dat, "slots.csv", row.names = F)
-                    shinyalert("Success", "You have made an appointment!", type = "success")
-                }
-            }
-        }
-    })
-    
-    observeEvent(input$check, {
-        dat <- read.table("slots.csv", sep = ',', header = T)
-        sub <- subset(dat, Name == input$name & Password == input$password)
-        date <- sub$Date
-        if(nrow(sub) == 0){
-            shinyalert("No matches", "You don't have any appointments now!", type = "info")
-        }
-        else{
-            shinyalert("Matches", paste0("Your appointment(s): ", paste(date, collapse = ", ")), type = "info")
-        }
-    })
-    
-    observeEvent(input$del, {
-        if(length(input$date) == 0 | input$name == "" | input$password == ""){
-            shinyalert("Alert", "Please input full information!", type = "error")
-        }
-        else{
-            dat <- read.table("slots.csv", sep = ',', header = T)
-            sub <- subset(dat, Date == as.character(input$date) & Name == input$name & Password == input$password)
-            if(nrow(sub) == 0){
-                shinyalert("No matches", "This appointment does not exist!", type = "info")
-            }
-            else{
-                id <- as.numeric(rownames(sub))
-                write.csv(dat[-id,], "slots.csv", row.names = F)
-                shinyalert("Success", "You have deleted the appointment!", type = "success")
-            }
-        }
-        
+      ))
+      
     })
     
     
-    # misc page
+    # misc page ----
     data_uploaded <- reactive({
         file1 <- input$file
         if(is.null(file1)){ return() }
