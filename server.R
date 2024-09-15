@@ -37,12 +37,12 @@ shinyServer(function(input, output, session) {
             mainPanel(
                 h4("Hi there, welcome to my website!"),
                 hr(),
-                h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student with a minor in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
+                h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student minoring in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
                 hr(),
-                h4("I aspire to be a ", tags$em("quantitative psychologist/methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in the methodology, including ", 
+                h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in methodology, including ", 
                    tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages."),
                 hr(),
-                h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of Sudoku and you may find me participating in all kinds of Sudoku contests in mainland China!"),
+                h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
                 
             )
@@ -184,11 +184,11 @@ shinyServer(function(input, output, session) {
         
         # undergrad overall section
         tags$h4(
-          tags$p(
+          # tags$p(
           tags$b(undergrad[1]),
-          tags$em(style = "margin-left: 50px;", undergrad[2])),
-          tags$p(undergrad[3]),
-          tags$p(tags$em(undergrad[4]))
+          tags$em(style = "margin-left: 50px;", undergrad[2]),
+          tags$p(undergrad[3])),
+          tags$h4(tags$u(undergrad[4])
         ),
         # courses
         tags$h4(tags$ul(
