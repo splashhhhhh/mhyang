@@ -8,7 +8,8 @@ library(ggplot2)
 
 shinyUI(dashboardPage(
     skin = "blue",
-    dashboardHeader(title = tags$span(style = "font-weight: bold; font-family: 'PingFang TC', sans-serif", "Muhan Yang"), titleWidth = 230, disable = FALSE,
+    dashboardHeader(
+      title = tags$span(style = "font-weight: bold; font-family: 'PingFang TC', sans-serif", "Muhan Yang"), titleWidth = 230, disable = FALSE,
                     tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("x-twitter"), "Twitter/X", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
@@ -48,9 +49,22 @@ shinyUI(dashboardPage(
     ),
     
     dashboardBody(
-      tags$head(
-        tags$title("Muhan Yang"),
-        tags$link(rel = "icon", type = "image/x-icon", href = "www/favicon.ico")
+      shiny::tags$head(
+        tags$script(HTML(
+          "
+        document.addEventListener('DOMContentLoaded', function() {
+          // Set the browser tab title
+          document.title = 'Muhan Yang';
+          
+          // Set the favicon
+          var link = document.createElement('link');
+          link.rel = 'icon';
+          link.type = 'image/x-icon';
+          link.href = 'www/favicon.ico'; // Path to your favicon
+          document.head.appendChild(link);
+        });
+        "
+        ))
       ),
       tabItems(
              tabItem(tabName = "about", uiOutput("indexpage")),
