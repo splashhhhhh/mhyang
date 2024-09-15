@@ -16,8 +16,8 @@ shinyServer(function(input, output, session) {
             sidebarPanel(width = 4,
                 tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h1(style = "text-align: center;", tags$b(style = "font-size: 30px; font-family: 'Comic Sans MS', cursive",
-                          "Muhan Yang | 杨慕涵")),
+                h1(style = "text-align: center;", tags$b(style = "font-size: 30px; font-family: 'PingFang TC', sans-serif",
+                          "Muhan Yang | 楊慕涵")),
                 h4(style = "text-align: center;", "Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),

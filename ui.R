@@ -8,7 +8,7 @@ library(ggplot2)
 
 shinyUI(dashboardPage(
     skin = "blue",
-    dashboardHeader(title = tags$span(style = "font-weight: bold; font-family: 'Comic Sans MS', cursive", "Muhan Yang"), titleWidth = 230, disable = FALSE,
+    dashboardHeader(title = tags$span(style = "font-weight: bold; font-family: 'PingFang TC', sans-serif", "Muhan Yang"), titleWidth = 230, disable = FALSE,
                     tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("x-twitter"), "Twitter/X", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
