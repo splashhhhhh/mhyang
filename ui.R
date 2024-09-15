@@ -82,7 +82,7 @@ shinyUI(dashboardPage(
              tabItem(tabName = "activities", uiOutput("actpage")),
              
              tabItem(tabName = "cv", tags$iframe(style = "height: 1100px; width: 100%; scrolling = yes",
-                                                 src = "Muhan_Yang_CV_0825.pdf"))
+                                                 src = "Muhan_Yang_CV_0915.pdf"))
 
         )
 
