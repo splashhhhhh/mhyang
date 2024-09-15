@@ -50,10 +50,10 @@ shinyUI(dashboardPage(
     dashboardBody(
       tags$head(
         tags$title("Muhan Yang"),
-        tags$link(rel = "icon", type = "image/png", href = "www//favicon-32x32.png")
+        tags$link(rel = "icon", type = "image/x-icon", href = "www/favicon.ico")
       ),
         tabItems(
-             tabItem(tabName = "about", uiOutput("indexpage")),
+             tabItem(tabName = "about", uiOutput("eindexpage")),
              
              tabItem(tabName = "edu", uiOutput("edupage")),
              
