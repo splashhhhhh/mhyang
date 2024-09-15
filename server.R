@@ -202,34 +202,8 @@ shinyServer(function(input, output, session) {
     
     
     # misc page ----
-    data_uploaded <- reactive({
-        file1 <- input$file
-        if(is.null(file1)){ return() }
-        read.table(file = file1$datapath, sep = ",", header = T, stringsAsFactors = T)
-    })
-    
-    output$histui <- renderUI({
-        if(is.null(input$file))
-            return()
-        else{
-            lst <- list(actionButton("plot_button", "View Plot", icon = icon("bar-chart")),
-                        bsModal(id = "Plot", title = "Plot", trigger = "plot_button", size = "large",
-                                selectInput("data_names", "Select a variable", choices = names(data_uploaded())),
-                                sliderInput("bins", label = "Select the number of bins", min = 20, max = 50, value = 30),
-                                br(),
-                                withSpinner(plotOutput("plot_gg"))
-                                ))
-            return(lst)
-        }
-    })
-    
-    output$plot_gg <- renderPlot({
-        ggplot(data = data_uploaded()) +
-            geom_histogram(bins = input$bins, aes(x = get(input$data_names))) +
-            ggtitle("Histogram") +
-            xlab(paste(input$data_names, " & number of bins as ", input$bins)) +
-            ylab("Frequency") +
-            theme_minimal()
+    output$miscpage <- renderUI({
+      
     })
     
     
