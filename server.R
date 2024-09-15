@@ -5,6 +5,7 @@ library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
 library(ggplot2)
+library(bslib)
 library(DT)
 
 shinyServer(function(input, output, session) {
@@ -15,8 +16,8 @@ shinyServer(function(input, output, session) {
             sidebarPanel(width = 4,
                 tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h1(style = "text-align: center;", tags$b(style = "font-size: 30px;",
-                          "Muhan Yang | 杨 慕 涵")),
+                h1(style = "text-align: center;", tags$b(style = "font-size: 30px; font-family: 'Comic Sans MS', cursive",
+                          "Muhan Yang | 杨慕涵")),
                 h4(style = "text-align: center;", "Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),
@@ -49,6 +50,7 @@ shinyServer(function(input, output, session) {
         )
     })
     
+    
     # projects page ----
     output$projpage <- renderUI({
         tabsetPanel(
@@ -67,6 +69,7 @@ shinyServer(function(input, output, session) {
         pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
         datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE))
     })
+    
     
     # experience page ----
     output$exppage <- renderUI({
@@ -162,6 +165,7 @@ shinyServer(function(input, output, session) {
         ))
       )
     })
+    
     # education page ----
     output$edupage <- renderUI({
       undergrad <- c("B.A. (Hons.), The University of British Columbia ",
@@ -187,7 +191,7 @@ shinyServer(function(input, output, session) {
           # tags$p(
           tags$b(undergrad[1]),
           tags$em(style = "margin-left: 50px;", undergrad[2]),
-          tags$p(undergrad[3])),
+          tags$p(tags$em(undergrad[3]))),
           tags$h4(tags$u(undergrad[4])
         ),
         # courses
@@ -201,8 +205,82 @@ shinyServer(function(input, output, session) {
     })
     
     
-    # misc page ----
-    output$miscpage <- renderUI({
+
+    # activity page ----
+    output$actpage <- renderUI({
+      textLines1 <- c(
+        "youCode@UBC: 24-Hour Hackathon | ",
+        "UX/UI Designer",
+        "Apr. 6-7, 2024"
+      )
+      bulletPoints1 <- c("Implemented UX/UI design in the team of 4 by creating an interactive and functional prototype with a campus map, using Figma and Procreate", 
+                         "Built a phone app for locating outdoor activities on campus map with reward features",
+                         "Maintained the overall version control of the team via Git")
+      
+      
+      # Section 2: Text lines followed by bullet points
+      textLines2 <- c(
+        "Mood Psychology Mental Health Support Group UBC Branch | ",
+        "Peer Support Mentor",
+        "Jul. 2022 – May 2023"
+      )
+      bulletPoints2 <- c("Attained peer support skills and ethics through 5-week online peer support training", 
+                         "Offered weekly 1-2h peer support service to mentees", 
+                         "Actively discussed advanced counselling skills with supervisor and other mentors bimonthly")
+      
+      tagList(
+        # First section
+        tags$h4(
+          tags$b(textLines1[1]),
+          tags$em(textLines1[2]),
+          tags$p(textLines1[3])),
+        tags$h4(tags$ul(
+          lapply(bulletPoints1, function(point) {
+            tags$li(point)
+          })
+        )),
+        tags$br(),
+        
+        # Second section
+        tags$h4(
+          tags$b(textLines2[1]),
+          tags$em(textLines2[2]),
+          tags$p(textLines2[3])),
+        tags$h4(tags$ul(
+          lapply(bulletPoints2, function(point) {
+            tags$li(point)
+          })
+        )),
+        tags$br()
+      )
+      
+    })
+    
+
+    # awards page ----
+    output$awardpage <- renderUI({
+      tagList(
+      tags$h4(
+        tags$b("Work Learn International Undergraduate Research Award (WLIURA)"),
+        tags$p(tags$em("May - Aug. 2024")),
+        tags$p("$8,500 awarded to international undergraduates to work full-time (35h/week) on research projects under faculty’s supervision")),
+      tags$br(),
+      
+      tags$h4(
+        tags$b("Dean’s List"),
+        tags$p(tags$em("2022 - 2023; 2023 - 2024")),
+        tags$p("Awarded by UBC Faculty of Arts to undergraduates with a grade average of 85/100 (A) per year")),
+      tags$br(),
+      
+      tags$h4(
+        tags$b("Honourable Mention"),
+        tags$p(tags$em("Apr. 2024")),
+        tags$p("Awarded by youCode@UBC Hackathon to teams ranking directly subsequent top 3 winners"))
+      )
+    })
+    
+    # skills page ----
+    output$skillpage <- renderUI({
       
     })
     

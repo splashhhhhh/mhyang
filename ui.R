@@ -8,8 +8,8 @@ library(ggplot2)
 
 shinyUI(dashboardPage(
     skin = "blue",
-    dashboardHeader(title = tags$span(style = "font-weight: bold;", "Muhan Yang"), titleWidth = 230, disable = FALSE,
-                    tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("twitter"), "Twitter", target = "_blank")),
+    dashboardHeader(title = tags$span(style = "font-weight: bold; font-family: 'Comic Sans MS', cursive", "Muhan Yang"), titleWidth = 230, disable = FALSE,
+                    tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("x-twitter"), "Twitter/X", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
                     ),
@@ -35,7 +35,10 @@ shinyUI(dashboardPage(
             menuItem(text = "Research", tabName = "research", icon = icon("brain"),  
                      menuSubItem("Projects", tabName = "proj"),
                      menuSubItem("Experiences", tabName = "exp")),
-            menuItem(text = "Misc.", tabName = "misc", icon = icon("heart")),
+            menuItem(text = "Misc.", tabName = "misc", icon = icon("heart"),
+                     menuSubItem("Skills", tabName = "skills"),
+                     menuSubItem("Awards", tabName = "awards"),
+                     menuSubItem("Activities", tabName = "activities")),
             menuItem(text = "CV", tabName = "cv", icon = icon("code")),
             tags$div(
               class = "sidebar-footer",
@@ -54,10 +57,14 @@ shinyUI(dashboardPage(
              
              tabItem(tabName = "proj", uiOutput("projpage")),
              
-             tabItem(tabName = "misc", uiOutput("miscpage")),
+             tabItem(tabName = "skills", uiOutput("skillpage")),
+             
+             tabItem(tabName = "awards", uiOutput("awardpage")),
+             
+             tabItem(tabName = "activities", uiOutput("actpage")),
              
              tabItem(tabName = "cv", tags$iframe(style = "height: 1100px; width: 100%; scrolling = yes",
-                                                 src = "Muhan_Yang_CV_0824.pdf"))
+                                                 src = "Muhan_Yang_CV_0825.pdf"))
 
         )
 
