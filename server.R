@@ -281,7 +281,42 @@ shinyServer(function(input, output, session) {
     
     # skills page ----
     output$skillpage <- renderUI({
-      
+      tagList(
+        tags$h4(
+          tags$b("R Tools & Packages"),
+          tags$p(style = "margin-left: 30px", "Shiny, Rmarkdown, lavaan, semTools, simsem, lme4, psych, Tidyverse, ggplot2, dplyr")
+        ),
+        tags$br(),
+        
+        tags$h4(
+          tags$b("Python Tools & Packages"),
+          tags$p(style = "margin-left: 30px", "Pandas, Matplotlib, NumPy, scikit-learn, Altair, Natural Language Toolkit (NLTK), spaCy")
+        ),
+        tags$br(),
+        
+        tags$h4(
+          tags$b("Other Software & Tools"),
+          tags$p(style = "margin-left: 30px", "SPSS, LaTeX, Git, Jupyter, Figma, Qualtrics, Globus")
+        ),
+        tags$br(),
+        
+        tags$h4(
+          tags$b("Soft Skills for Research"),
+          tags$p(style = "margin-left: 30px", "Literature Review, Academic Poster Design, UX/UI Design")
+        ),
+        tags$br(),
+        
+        tags$h4(
+          tags$b("Languages"),
+          tags$p(style = "margin-left: 30px", "Fluent in Mandarin, Conversational in Cantonese")
+        ),
+        tags$br(),
+        
+        tags$h4(
+          tags$b("Hobbies"),
+          tags$p(style = "margin-left: 30px", "Guzheng, Ukulele, Sudoku, Board Games, Music Arrangement, Audio Mixing")
+        )
+      )
     })
     
     
