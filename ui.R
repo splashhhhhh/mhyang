@@ -5,23 +5,6 @@ library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
 library(ggplot2)
-library(fresh)
-
-# mytheme <- create_theme(
-#     adminlte_color(
-#       light-blue = "#5F9EA0"
-#   )
-#   # adminlte_sidebar(
-#   #   dark_bg = "#D8DEE9",
-#   #   dark_hover_bg = "#81A1C1",
-#   #   dark_color = "#2E3440"
-#   # ),
-#   # adminlte_global(
-#   #   content_bg = "#FFF",
-#   #   box_bg = "#D8DEE9", 
-#   #   info_box_bg = "#D8DEE9"
-#   # )
-# )
 
 
 shinyUI(dashboardPage(
@@ -76,12 +59,16 @@ shinyUI(dashboardPage(
       tags$style(HTML("
       /* Adjust line spacing for all headers in the main content area */
         .content-wrapper h4 {
-          line-height: 2.0; 
+          line-height: 1.5; 
+          font-size: 19px;
+        }
+        .content-wrapper p {
+          line-height: 1.0; 
           font-size: 19px;
         }
         
       .custom-bullets li {
-        margin-bottom: 10px;
+        margin-bottom: 5px !important;
       }
       
       /* Change the top-left corner (logo) color */
@@ -130,12 +117,16 @@ shinyUI(dashboardPage(
       
       /* Change font color for tab panel titles */
         .nav-tabs > li > a {
-          color: #927fbf; /* Default color for tab panel titles */
+          color: #857ebb; /* Default color for tab panel titles */
         }
         
     ")),
       shiny::tags$head(
-        # tags$style(HTML('
+        tags$style(HTML('
+            /* Change the background color of the entire dashboardBody */
+            .content-wrapper {
+              background-color: #d8e3e7; /* Light AliceBlue color, change this to your desired color */
+            }
         #   /* Change the sidebar background color */
         #     
         #   .skin-blue .main-sidebar {
@@ -144,7 +135,7 @@ shinyUI(dashboardPage(
         #   .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li:hover>a {
         # background-color: #444444;
         #   }
-        # ,')),
+        ,')),
         tags$script(HTML(
           "
         document.addEventListener('DOMContentLoaded', function() {

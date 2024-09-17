@@ -1,10 +1,12 @@
 name: quantpsych
-title:
+title: mhyang
 username: muhanyang
 account: muhanyang
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12716405
-bundleId: 9104562
+bundleId:
 url: https://muhanyang.shinyapps.io/quantpsych/
 version: 1
+asMultiple: FALSE
+asStatic: FALSE

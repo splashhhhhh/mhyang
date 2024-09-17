@@ -4,6 +4,7 @@ library(shinyalert)
 library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
+library(shinydashboardPlus)
 library(ggplot2)
 library(bslib)
 library(DT)
@@ -16,8 +17,10 @@ shinyServer(function(input, output, session) {
             sidebarPanel(width = 4,
                 tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h1(style = "text-align: center;", tags$b(style = "font-size: 30px; font-family: 'PingFang TC', sans-serif",
-                          "Muhan Yang | 楊慕涵")),
+                h1(class = "typewriter",
+                   style = "text-align: center;", 
+                   tags$b(style = "font-size: 30px; font-family: 'PingFang TC', sans-serif",
+                          "Muhan Yang | 楊 慕涵")),
                 h4(style = "text-align: center;", "Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),
@@ -30,9 +33,7 @@ shinyServer(function(input, output, session) {
                 # hr(),
                 
                 h3(tags$b("Contact")),
-                h4("Email: "),
-                h4(HTML('<a href="mailto:muhanyangpsych@gmail.com" style="color: #927fbf;">muhanyangpsych@gmail.com</a>'),
-                   HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #927fbf;">muhan211@student.ubc.ca</a>')),
+                h4("Email: ", HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;">muhan211@student.ubc.ca</a>')),
                 h4("Phone: (604) 727-0895")
 
             ),
@@ -44,13 +45,13 @@ shinyServer(function(input, output, session) {
                 br(),
                 h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in methodology, including ", 
                    tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding two quantitative methods research assistant positions at ", 
-                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #927fbf;">UBC SEM Lab</a>'), "and ", HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #927fbf;">the Rights Lab</a>'), ", under the supervision of ",
-                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;">Dr. Victoria Savalei</a>'), "and ", 
-                   HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;">Dr. Jason Rights</a>'), 
+                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #927fbf;font-weight: bold;">UBC SEM Lab</a>'), "and ", HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #927fbf;font-weight: bold;">the Rights Lab</a>'), ", under the supervision of ",
+                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;font-weight: bold;">Dr. Victoria Savalei</a>'), "and ", 
+                   HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;font-weight: bold;">Dr. Jason Rights</a>'),
                    ". One of my most recent interests is learning to build Shiny App and develop R packages."),
                 br(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in all kinds of Sudoku contests in mainland China!"),
-                br(),
+                br()
                 
             )
         )
@@ -66,24 +67,19 @@ shinyServer(function(input, output, session) {
     })
     
     output$thesistable <- renderDataTable({
-        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank" style="color: #927fbf;">Google Drive (pdf)</a>')
+        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank" style="color: #857ebb;">Google Drive (pdf)</a>')
         datatable(thesis, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE, scrollX = TRUE, responsive = TRUE))
     })
     
     output$pretable <- renderDataTable({
-        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank" style="color: #927fbf;">Google Drive (pdf)</a>')
-        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank" style="color: #927fbf;">Google Drive (pdf)</a>')
+        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank" style="color: #857ebb;">Google Drive (pdf)</a>')
+        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank" style="color: #857ebb;">Google Drive (pdf)</a>')
         datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE, scrollX = TRUE, responsive = TRUE))
     })
     
     
     # experience page ----
     output$exppage <- renderUI({
-      textLines1 <- c(
-        "Research Assistant @ UBC Structural Equation Modelling (SEM) Lab | ",
-        "PI: Victoria Savalei",
-        "January 2024 - Present"
-      )
       bulletPoints1 <- c("Mastered SEM basics through PSYC 546Y SEM I graduate course materials", 
                          "Conducted a literature review on Random-Intercepts Cross-Lagged Panel Model (RI-CLPM) simulation",
                          "Extended the simulation in Mulder (2023) to other conditions and conducted a report",
@@ -91,84 +87,117 @@ shinyServer(function(input, output, session) {
                          "Will be conducting an independent project on the simulation of RI-CLPM and build a Shiny App")
       
       # Section 2: Text lines followed by bullet points
-      textLines2 <- c(
-        "Fourth-year Honours Thesis Student & Research Assistant @ The Rights Lab | ",
-        "PI: Jason Rights",
-        "September 2023 - Present"
-      )
       bulletPoints2 <- c("Skilled in Multilevel Modelling (MLM) via literature reading, biweekly discussion with graduate student, and PSYC 546J MLM graduate course", 
                          "Performed a literature review with 100+ articles on Intra-Class Correlation (ICC) in MLM", 
                          "Drafted an empirical example and got training in running simulation of the ICC project",
                          "Assisted adjusted R-squared manuscript: searched related literature and proofread before submission")
       
       # Section 3: Text lines followed by bullet points
-      textLines3 <- c(
-        "Third-year Honours Thesis Student & Research Assistant @ Child and Teen Studies Lab | ",
-        "PI: Catherine Ann Cameron",
-        "September 2023 - June 2024"
-      )
       bulletPoints3 <- c("Completed data entry based on interview responses and data cleaning using SPSS", 
                          "Guided and mentored junior lab members to use SPSS and R in data cleaning", 
                          "Contacted parents, scheduled sessions, collected consents, and managed consent forms and session recordings on Globus",
                          "Coordinated a team of 5 to draft the APS Convention 2024 poster submission")
       
       # Section 4: Text lines followed by bullet points
-      textLines4 <- c(
-        "Research Assistant @ Social Health Lab | ",
-        "PI: Frances Chen",
-        "September 2022 - September 2023"
-      )
       bulletPoints4 <- c("Collected and entered ∼80 pieces of data in Teen Studies project and TSST Simulated Online Interview project, including saliva sample collection", 
                          "Conducted Trier Social Stress Test (TSST) interview, parent reconsent, and medication record entry", 
                          "Assisted graduate students with mock phone screen practice using DSM-V")
-      
-      tagList(
-        # First section
-        tags$h4(
-          tags$b(textLines1[1]),
-          tags$em(textLines1[2]),
-          tags$p(textLines1[3])),
-        tags$h4(tags$ul(
-          lapply(bulletPoints1, function(point) {
-            tags$li(point)
-          })
-        )),
-        tags$br(),
+
+      tagList(tags$head(
+        # Custom styles for the box headers
+        tags$style(HTML("
+      /* Customize the header color for each box */
+      #box1 .box-header {
+        background-color: #bc87b8 !important;
+        color: white !important;
+      }
+      #box2 .box-header {
+        background-color: #bdaacf !important;
+        color: white !important;
+      }
+      #box3 .box-header {
+        background-color: #a5b7d6 !important;
+        color: white !important;
+      }
+      #box4 .box-header {
+        background-color: #778cbb !important;
+        color: white !important;
+      }
+    "))),
+        fluidRow(
+        # First box
+        box(
+          id = "box1",
+          title = "Research Assistant @ UBC SEM Lab | PI: Victoria Savalei",
+          # status = "primary",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          # style = "background-color: #FF6347; color: white;",
+          width = 12,
+          tags$h4(
+            tags$p("January 2024 - Present")),
+          tags$ul(
+            lapply(bulletPoints1, function(point) {
+              tags$li(point)
+            })
+          )
+        ),
         
-        # Second section
-        tags$h4(
-          tags$b(textLines2[1]),
-          tags$em(textLines2[2]),
-          tags$p(textLines2[3])),
-        tags$h4(tags$ul(
-          lapply(bulletPoints2, function(point) {
-            tags$li(point)
-          })
-        )),
-        tags$br(),
+        # Second box
+        box(
+          id = "box2",
+          title = "Fourth-year Honours Thesis Student & Research Assistant @ The Rights Lab | PI: Jason Rights",
+          # status = "info",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          width = 12,
+          tags$h4(
+            tags$p("September 2023 - Present")),
+          tags$ul(
+            lapply(bulletPoints2, function(point) {
+              tags$li(point)
+            })
+          )
+        ),
         
-        # Third section
-        tags$h4(
-          tags$b(textLines3[1]),
-          tags$em(textLines3[2]),
-          tags$p(textLines3[3])),
-        tags$h4(tags$ul(
-          lapply(bulletPoints3, function(point) {
-            tags$li(point)
-          })
-        )),
-        tags$br(),
+        # Third box
+        box(
+          id = "box3",
+          title = "Third-year Honours Thesis Student & Research Assistant @ Child and Teen Studies Lab | PI: Catherine Ann Cameron",
+          # status = "success",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          width = 12,
+          tags$h4(
+            tags$p("September 2023 - June 2024")),
+          tags$ul(
+            lapply(bulletPoints3, function(point) {
+              tags$li(point)
+            })
+          )
+        ),
         
-        # Fourth section
-        tags$h4(
-          tags$b(textLines4[1]),
-          tags$em(textLines4[2]),
-          tags$p(textLines4[3])),
-        tags$h4(tags$ul(
-          lapply(bulletPoints4, function(point) {
-            tags$li(point)
-          })
-        ))
+        # Fourth box
+        box(
+          id = "box4",
+          title = "Research Assistant @ Social Health Lab | PI: PI: Frances Chen",
+          # status = "warning",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          width = 12,
+          tags$h4(
+            tags$p("September 2022 - September 2023")),
+          tags$ul(
+            lapply(bulletPoints4, function(point) {
+              tags$li(point)
+            })
+          )
+        )
+      )
       )
     })
     
@@ -197,9 +226,9 @@ shinyServer(function(input, output, session) {
           style = "font-size: 19.5px;",
           # tags$p(
           tags$b(tags$span(
-            style = "color: #927fbf", undergrad[1])),
+            style = "color: #857ebb", undergrad[1])),
           tags$em(style = "margin-left: 50px;", undergrad[2]),
-          tags$p(tags$em(style = "color: #927fbf", undergrad[3])))),
+          tags$p(tags$em(style = "color: #857ebb", undergrad[3])))),
           tags$h4(tags$u(undergrad[4])
         ),
         # courses
@@ -236,32 +265,71 @@ shinyServer(function(input, output, session) {
                          "Offered weekly 1-2h peer support service to mentees", 
                          "Actively discussed advanced counselling skills with supervisor and other mentors bimonthly")
       
+      # tagList(
+      #   # First section
+      #   tags$h4(
+      #     tags$b(textLines1[1]),
+      #     tags$em(textLines1[2]),
+      #     tags$p(textLines1[3])),
+      #   tags$h4(tags$ul(class = "custom-bullets",
+      #     lapply(bulletPoints1, function(point) {
+      #       tags$li(point)
+      #     })
+      #   )),
+      #   tags$br(),
+      #   
+      #   # Second section
+      #   tags$h4(
+      #     tags$b(textLines2[1]),
+      #     tags$em(textLines2[2]),
+      #     tags$p(textLines2[3])),
+      #   tags$h4(tags$ul(class = "custom-bullets",
+      #     lapply(bulletPoints2, function(point) {
+      #       tags$li(point)
+      #     })
+      #   )),
+      #   tags$br()
+      # )
       tagList(
-        # First section
-        tags$h4(
-          tags$b(textLines1[1]),
-          tags$em(textLines1[2]),
-          tags$p(textLines1[3])),
-        tags$h4(tags$ul(class = "custom-bullets",
-          lapply(bulletPoints1, function(point) {
-            tags$li(point)
-          })
-        )),
-        tags$br(),
-        
-        # Second section
-        tags$h4(
-          tags$b(textLines2[1]),
-          tags$em(textLines2[2]),
-          tags$p(textLines2[3])),
-        tags$h4(tags$ul(class = "custom-bullets",
-          lapply(bulletPoints2, function(point) {
-            tags$li(point)
-          })
-        )),
-        tags$br()
-      )
       
+      fluidRow(
+        # First box
+        box(
+          id = "box1",
+          title = "youCode@UBC: 24-Hour Hackathon | UX/UI Designer",
+          # status = "primary",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          # color = "#605ca8",
+          width = 12,
+          tags$h4(
+            tags$p("Apr. 6-7, 2024")),
+          tags$ul(
+            lapply(bulletPoints1, function(point) {
+              tags$li(point)
+            })
+          )
+        ),
+        
+        # Second box
+        box(
+          id = "box2",
+          title = "Mood Psychology Mental Health Support Group UBC Branch | Peer Support Mentor",
+          # status = "info",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          width = 12,
+          tags$h4(
+            tags$p("Jul. 2022 – May 2023")),
+          tags$ul(
+            lapply(bulletPoints2, function(point) {
+              tags$li(point)
+            })
+          )
+        )
+      ))
     })
     
 
@@ -326,7 +394,4 @@ shinyServer(function(input, output, session) {
         )
       )
     })
-    
-    
-    
 })
