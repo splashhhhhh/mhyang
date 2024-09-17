@@ -10,7 +10,7 @@ library(ggplot2)
 shinyUI(dashboardPage(
     dashboardHeader(
       title = tags$span(style = "font-weight: bold; font-family: 'PingFang TC', sans-serif;", "Muhan Yang"), titleWidth = 230, disable = FALSE,
-                    tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh/mhyang/blob/05c2262c3153c62cb5606e7718277bb99040bd9a/www/Muhan_Yang_CV_0915.pdf", icon("file"), "CV", target = "_blank")),
+                    tags$li(class = "dropdown", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_0915.pdf", icon("file"), "CV", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
                     ),
@@ -117,7 +117,11 @@ shinyUI(dashboardPage(
       
       /* Change font color for tab panel titles */
         .nav-tabs > li > a {
-          color: #857ebb; /* Default color for tab panel titles */
+          color: #bc87b8; /* Default color for tab panel titles */
+        }
+      
+      .skin-blue .main-header .navbar .sidebar-toggle:hover {
+          background-color: #a696c8;
         }
         
     ")),
@@ -168,7 +172,7 @@ shinyUI(dashboardPage(
              
              tabItem(tabName = "activities", uiOutput("actpage")),
              
-             tabItem(tabName = "cv", tags$iframe(style = "height: 1100px; width: 100%; scrolling = yes",
+             tabItem(tabName = "cv", tags$iframe(style = "height: 100vh; width: 100%; boarder: none;",
                                                  src = "Muhan_Yang_CV_0915.pdf"))
 
         )

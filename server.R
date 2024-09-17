@@ -13,14 +13,42 @@ shinyServer(function(input, output, session) {
     
     # index page ----
     output$indexpage <- renderUI({
+      tagList(
+        tags$head(
+          tags$style(HTML("
+      @keyframes type {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: black; }
+      }
+
+      .typewriter {
+        display: inline-block;
+        font-family: 'PingFang TC', sans-serif;
+        font-size: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 0.09em solid black; /* Cursor effect */
+        animation:
+          type 3.5s steps(40, end), infinite,
+          blink-caret .75s step-end infinite;
+      }
+    "))
+        ),
         sidebarLayout(position = "left",
             sidebarPanel(width = 4,
+                         style = "border: 2px solid #927fbf; padding: 10px; border-radius: 10px;",
                 tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
-                h1(class = "typewriter",
-                   style = "text-align: center;", 
-                   tags$b(style = "font-size: 30px; font-family: 'PingFang TC', sans-serif",
-                          "Muhan Yang | 楊 慕涵")),
+                tags$div(
+                  style = "display: flex; justify-content: center",
+                h1(
+                   tags$b(class = "typewriter", style = "font-size: 28px; font-family: 'PingFang TC', sans-serif",
+                          "Muhan Yang | 楊 慕涵"))),
                 h4(style = "text-align: center;", "Pronunciation: 'm-oo-h-uh-n'"),
                 
                 hr(),
@@ -33,7 +61,7 @@ shinyServer(function(input, output, session) {
                 # hr(),
                 
                 h3(tags$b("Contact")),
-                h4("Email: ", HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;">muhan211@student.ubc.ca</a>')),
+                h4("Email: ", HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;text-decoration: underline;">muhan211@student.ubc.ca</a>')),
                 h4("Phone: (604) 727-0895")
 
             ),
@@ -43,16 +71,17 @@ shinyServer(function(input, output, session) {
                 br(),
                 h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student minoring in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
                 br(),
-                h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in methodology, including ", 
-                   tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding two quantitative methods research assistant positions at ", 
-                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #927fbf;font-weight: bold;">UBC SEM Lab</a>'), "and ", HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #927fbf;font-weight: bold;">the Rights Lab</a>'), ", under the supervision of ",
-                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;font-weight: bold;">Dr. Victoria Savalei</a>'), "and ", 
-                   HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;font-weight: bold;">Dr. Jason Rights</a>'),
+                h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$b("longitudinal data analysis"), " in methodology, including ", 
+                   tags$b("Multilevel Modelling (MLM)"), " and ", tags$b("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding two quantitative methods research assistant positions at ", 
+                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #bc87b8;text-decoration: underline;">UBC SEM Lab</a>'), "and ", 
+                   HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #bc87b8;text-decoration: underline;">the Rights Lab</a>'), ", under the supervision of ",
+                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Victoria Savalei</a>'), "and ", 
+                   HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Jason Rights</a>'),
                    ". One of my most recent interests is learning to build Shiny App and develop R packages."),
                 br(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br()
-                
+              )
             )
         )
     })
@@ -60,20 +89,30 @@ shinyServer(function(input, output, session) {
     
     # projects page ----
     output$projpage <- renderUI({
+      tagList(
+        tags$head(
+          tags$style(HTML("
+                #thesistable tbody tr.selected, #pretable tbody tr.selected {
+                    background-color: #ee8572 !important; /* Change background color */
+                    color: white !important;              /* Change text color */
+                }
+            "))
+        ),
         tabsetPanel(
             tabPanel(tags$b("Theses"), dataTableOutput("thesistable")),
             tabPanel(tags$b("Posters"), dataTableOutput("pretable"))
+          )
         )
     })
     
     output$thesistable <- renderDataTable({
-        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank" style="color: #857ebb;">Google Drive (pdf)</a>')
+        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank" style="color: #bc87b8;text-decoration: underline;">Google Drive (pdf)</a>')
         datatable(thesis, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE, scrollX = TRUE, responsive = TRUE))
     })
     
     output$pretable <- renderDataTable({
-        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank" style="color: #857ebb;">Google Drive (pdf)</a>')
-        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank" style="color: #857ebb;">Google Drive (pdf)</a>')
+        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank" style="color: #bc87b8;text-decoration: underline;">Google Drive (pdf)</a>')
+        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank" style="color: #bc87b8;text-decoration: underline;">Google Drive (pdf)</a>')
         datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE, scrollX = TRUE, responsive = TRUE))
     })
     
@@ -123,7 +162,9 @@ shinyServer(function(input, output, session) {
         background-color: #778cbb !important;
         color: white !important;
       }
+      
     "))),
+        
         fluidRow(
         # First box
         box(
@@ -139,7 +180,7 @@ shinyServer(function(input, output, session) {
             tags$p("January 2024 - Present")),
           tags$ul(
             lapply(bulletPoints1, function(point) {
-              tags$li(point)
+              tags$li(style = "font-size: 16px;", point)
             })
           )
         ),
@@ -157,7 +198,7 @@ shinyServer(function(input, output, session) {
             tags$p("September 2023 - Present")),
           tags$ul(
             lapply(bulletPoints2, function(point) {
-              tags$li(point)
+              tags$li(style = "font-size: 16px;", point)
             })
           )
         ),
@@ -175,7 +216,7 @@ shinyServer(function(input, output, session) {
             tags$p("September 2023 - June 2024")),
           tags$ul(
             lapply(bulletPoints3, function(point) {
-              tags$li(point)
+              tags$li(style = "font-size: 16px;", point)
             })
           )
         ),
@@ -193,7 +234,7 @@ shinyServer(function(input, output, session) {
             tags$p("September 2022 - September 2023")),
           tags$ul(
             lapply(bulletPoints4, function(point) {
-              tags$li(point)
+              tags$li(style = "font-size: 16px;", point)
             })
           )
         )
@@ -226,9 +267,9 @@ shinyServer(function(input, output, session) {
           style = "font-size: 19.5px;",
           # tags$p(
           tags$b(tags$span(
-            style = "color: #857ebb", undergrad[1])),
+            style = "color: #bc87b8", undergrad[1])),
           tags$em(style = "margin-left: 50px;", undergrad[2]),
-          tags$p(tags$em(style = "color: #857ebb", undergrad[3])))),
+          tags$p(tags$em(style = "color: #bc87b8", undergrad[3])))),
           tags$h4(tags$u(undergrad[4])
         ),
         # courses
@@ -290,7 +331,18 @@ shinyServer(function(input, output, session) {
       #   )),
       #   tags$br()
       # )
-      tagList(
+      tagList(tags$head(
+        # Custom styles for the box headers
+        tags$style(HTML("
+      /* Customize the header color for each box */
+      #box1 .box-header {
+        background-color: #bc87b8 !important;
+        color: white !important;
+      }
+      #box2 .box-header {
+        background-color: #bdaacf !important;
+        color: white !important;
+      }"))),
       
       fluidRow(
         # First box
@@ -307,7 +359,7 @@ shinyServer(function(input, output, session) {
             tags$p("Apr. 6-7, 2024")),
           tags$ul(
             lapply(bulletPoints1, function(point) {
-              tags$li(point)
+              tags$li(style = "font-size: 16px;", point)
             })
           )
         ),
@@ -325,7 +377,7 @@ shinyServer(function(input, output, session) {
             tags$p("Jul. 2022 – May 2023")),
           tags$ul(
             lapply(bulletPoints2, function(point) {
-              tags$li(point)
+              tags$li(style = "font-size: 16px;", point)
             })
           )
         )
