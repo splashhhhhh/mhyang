@@ -5,12 +5,29 @@ library(shinyjs)
 library(shinyBS)
 library(shinycssloaders)
 library(ggplot2)
+library(fresh)
+
+# mytheme <- create_theme(
+#     adminlte_color(
+#       light-blue = "#5F9EA0"
+#   )
+#   # adminlte_sidebar(
+#   #   dark_bg = "#D8DEE9",
+#   #   dark_hover_bg = "#81A1C1",
+#   #   dark_color = "#2E3440"
+#   # ),
+#   # adminlte_global(
+#   #   content_bg = "#FFF",
+#   #   box_bg = "#D8DEE9", 
+#   #   info_box_bg = "#D8DEE9"
+#   # )
+# )
+
 
 shinyUI(dashboardPage(
-    skin = "blue",
     dashboardHeader(
-      title = tags$span(style = "font-weight: bold; font-family: 'PingFang TC', sans-serif", "Muhan Yang"), titleWidth = 230, disable = FALSE,
-                    tags$li(class = "dropdown", tags$a(href = "https://twitter.com/mhyang211", icon("x-twitter"), "Twitter/X", target = "_blank")),
+      title = tags$span(style = "font-weight: bold; font-family: 'PingFang TC', sans-serif;", "Muhan Yang"), titleWidth = 230, disable = FALSE,
+                    tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh/mhyang/blob/05c2262c3153c62cb5606e7718277bb99040bd9a/www/Muhan_Yang_CV_0915.pdf", icon("file"), "CV", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://www.linkedin.com/in/mhyang211", icon("linkedin"), "LinkedIn", target = "_blank")),
                     tags$li(class = "dropdown", tags$a(href = "https://github.com/splashhhhhh", icon("github"), "GitHub", target = "_blank"))
                     ),
@@ -28,9 +45,16 @@ shinyUI(dashboardPage(
           border-top: 0.5px solid #ddd;
           font-size: 11px; /* Smaller font size */
         }
+        
+        
       ")
       ),
         sidebarMenu(
+          tags$style(HTML("
+                  body { 
+                  line-height: 1.5; 
+                  }
+            ")),
             menuItem(text = "About Me", tabName = "about", icon = icon("star")),
             menuItem(text = "Education", tabName = "edu", icon = icon("user-graduate")),
             menuItem(text = "Research", tabName = "research", icon = icon("brain"),  
@@ -49,7 +73,78 @@ shinyUI(dashboardPage(
     ),
     
     dashboardBody(
+      tags$style(HTML("
+      /* Adjust line spacing for all headers in the main content area */
+        .content-wrapper h4 {
+          line-height: 2.0; 
+          font-size: 19px;
+        }
+        
+      .custom-bullets li {
+        margin-bottom: 10px;
+      }
+      
+      /* Change the top-left corner (logo) color */
+      .main-header .logo {
+        background-color: #424874 !important; /* Change to your desired color */
+      }
+
+      /* Change the header color */
+      .main-header .navbar {
+        background-color: #424874 !important; /* Change to your desired color */
+      }
+      
+      /* Change the sidebar background color */
+      .skin-blue .main-sidebar {
+        background-color: #453953;
+      }
+      
+      /* Change sidebar dropdown menu background color */
+      .skin-blue .sidebar-menu .treeview-menu {
+        background-color: #453953 !important; /* Change dropdown background color */
+      }
+
+      /* Change the color of the items in the dropdown menu */
+      .skin-blue .sidebar-menu .treeview-menu>li>a {
+        color: #dcd6f7 !important; /* Dropdown text color */
+      }
+      
+      /* Change the hover and active colors of sidebar menu items */
+      .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li:hover>a {
+        background-color: #a696c8;
+      }
+      
+      /* Change the color of the vertical bar on the left of the sidebar menu items */
+      .skin-blue .sidebar-menu>li>a {
+        border-left: 3px solid transparent; /* Default border color */
+      }
+      .skin-blue .sidebar-menu>li>a:hover, 
+      .skin-blue .sidebar-menu>li.active>a {
+        border-left: 3px solid #c06c84 !important; /* Hover and active vertical bar color */
+      }
+      
+      /* Change font color of sidebar sub-items on hover */
+        .main-sidebar .sidebar .sidebar-menu .treeview-menu > li > a:hover {
+          background-color: #927fbf; /* Light gray background on hover */
+        }
+      
+      /* Change font color for tab panel titles */
+        .nav-tabs > li > a {
+          color: #927fbf; /* Default color for tab panel titles */
+        }
+        
+    ")),
       shiny::tags$head(
+        # tags$style(HTML('
+        #   /* Change the sidebar background color */
+        #     
+        #   .skin-blue .main-sidebar {
+        # background-color: #666666;
+        #   }
+        #   .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li:hover>a {
+        # background-color: #444444;
+        #   }
+        # ,')),
         tags$script(HTML(
           "
         document.addEventListener('DOMContentLoaded', function() {
@@ -67,6 +162,7 @@ shinyUI(dashboardPage(
         ))
       ),
       tabItems(
+        
              tabItem(tabName = "about", uiOutput("indexpage")),
              
              tabItem(tabName = "edu", uiOutput("edupage")),

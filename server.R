@@ -30,19 +30,25 @@ shinyServer(function(input, output, session) {
                 # hr(),
                 
                 h3(tags$b("Contact")),
-                h4("Email: ", HTML('<a href="mailto:muhanyangpsych@gmail.com">muhanyangpsych@gmail.com</a>')),
+                h4("Email: "),
+                h4(HTML('<a href="mailto:muhanyangpsych@gmail.com" style="color: #927fbf;">muhanyangpsych@gmail.com</a>'),
+                   HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #927fbf;">muhan211@student.ubc.ca</a>')),
                 h4("Phone: (604) 727-0895")
 
             ),
             
             mainPanel(
                 h4("Hi there, welcome to my website!"),
-                hr(),
+                br(),
                 h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student minoring in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
-                hr(),
+                br(),
                 h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$u("longitudinal data analysis"), " in methodology, including ", 
-                   tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding research assistant positions in two quantitative methods labs at UBC Department of Psychology. One of my most recent interests is learning to build Shiny App and develop R packages."),
-                hr(),
+                   tags$u("Multilevel Modelling (MLM)"), " and ", tags$u("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding two quantitative methods research assistant positions at ", 
+                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #927fbf;">UBC SEM Lab</a>'), "and ", HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #927fbf;">the Rights Lab</a>'), ", under the supervision of ",
+                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;">Dr. Victoria Savalei</a>'), "and ", 
+                   HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;">Dr. Jason Rights</a>'), 
+                   ". One of my most recent interests is learning to build Shiny App and develop R packages."),
+                br(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br(),
                 
@@ -60,14 +66,14 @@ shinyServer(function(input, output, session) {
     })
     
     output$thesistable <- renderDataTable({
-        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
-        datatable(thesis, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE))
+        thesis$Link[2] <- HTML('<a href="https://drive.google.com/file/d/17H6hAsh4fBSuZKm65J9nd1_12kuU0fAt/view?usp=sharing" target="_blank" style="color: #927fbf;">Google Drive (pdf)</a>')
+        datatable(thesis, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE, scrollX = TRUE, responsive = TRUE))
     })
     
     output$pretable <- renderDataTable({
-        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
-        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank">Google Drive (pdf)</a>')
-        datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE))
+        pre$Link[1] <- HTML('<a href="https://drive.google.com/file/d/1ny9-4Bb5uyDjiNh17xXtPNCarU5AmqlP/view?usp=sharing" target="_blank" style="color: #927fbf;">Google Drive (pdf)</a>')
+        pre$Link[2] <- HTML('<a href="https://drive.google.com/file/d/1ekqUvO32ERia0RgSPU6xBFMu78e-0N3z/view?usp=sharing" target="_blank" style="color: #927fbf;">Google Drive (pdf)</a>')
+        datatable(pre, escape = FALSE,options = list(pageLength = 10, autoWidth = TRUE, scrollX = TRUE, responsive = TRUE))
     })
     
     
@@ -171,11 +177,11 @@ shinyServer(function(input, output, session) {
       undergrad <- c("B.A. (Hons.), The University of British Columbia ",
                      "2021 - 2025 (Expected)",
                      "Major: Psychology | Minor: Data Science",
-                     "Relevant Coursework: ")
-      courses <- c("PSYC 303 - Tests and Measurements",
-                   "PSYC 359 - Advanced Research Methods in Behavioural Sciences",
-                   "PSYC 417 - Special Topics in Psychology: Applied Regression Analysis",
-                   "PSYC 546J - Seminar in Psychological Problems: Multilevel Model (graduate course)",
+                     "Relevant Coursework (Grade): ")
+      courses <- c("PSYC 303 - Tests and Measurements (91)",
+                   "PSYC 359 - Advanced Research Methods in Behavioural Sciences (89)",
+                   "PSYC 417 - Special Topics in Psychology: Applied Regression Analysis (93)",
+                   "PSYC 546J - Seminar in Psychological Problems: Multilevel Model (graduate course) (95)",
                    "PSYC 546Y - Seminar in Psychological Problems: Structural Equation Model I (graduate course; self-learned through 2021W materials)",
                    "STAT 201 - Statistical Inference for Data Science",
                    "STAT 301 - Statistical Modelling for Data Science",
@@ -187,15 +193,17 @@ shinyServer(function(input, output, session) {
       tagList(
         
         # undergrad overall section
-        tags$h4(
+        tags$h4(tags$span(
+          style = "font-size: 19.5px;",
           # tags$p(
-          tags$b(undergrad[1]),
+          tags$b(tags$span(
+            style = "color: #927fbf", undergrad[1])),
           tags$em(style = "margin-left: 50px;", undergrad[2]),
-          tags$p(tags$em(undergrad[3]))),
+          tags$p(tags$em(style = "color: #927fbf", undergrad[3])))),
           tags$h4(tags$u(undergrad[4])
         ),
         # courses
-        tags$h4(tags$ul(
+        tags$h4(tags$ul(class = "custom-bullets",
           lapply(courses, function(point) {
             tags$li(point)
           })
@@ -234,7 +242,7 @@ shinyServer(function(input, output, session) {
           tags$b(textLines1[1]),
           tags$em(textLines1[2]),
           tags$p(textLines1[3])),
-        tags$h4(tags$ul(
+        tags$h4(tags$ul(class = "custom-bullets",
           lapply(bulletPoints1, function(point) {
             tags$li(point)
           })
@@ -246,7 +254,7 @@ shinyServer(function(input, output, session) {
           tags$b(textLines2[1]),
           tags$em(textLines2[2]),
           tags$p(textLines2[3])),
-        tags$h4(tags$ul(
+        tags$h4(tags$ul(class = "custom-bullets",
           lapply(bulletPoints2, function(point) {
             tags$li(point)
           })
