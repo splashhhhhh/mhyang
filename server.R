@@ -61,8 +61,11 @@ shinyServer(function(input, output, session) {
                 # hr(),
                 
                 h3(tags$b("Contact")),
-                h4("Email: ", HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;text-decoration: underline;">muhan211@student.ubc.ca</a>')),
-                h4("Phone: (604) 727-0895")
+                h4("Email: "), 
+                tags$p(HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;text-decoration: underline;">muhan211@student.ubc.ca</a>')),
+                tags$p(HTML('<a href="mailto:muhanyangpsych@gmail.com" style="color: #bc87b8;text-decoration: underline;">muhanyangpsych@gmail.com</a>')),
+                br(),
+                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_0915.pdf", icon("file"), "CV", style = "float: right; color: #927fbf", target = "_blank"))
 
             ),
             
@@ -72,8 +75,12 @@ shinyServer(function(input, output, session) {
                 h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student minoring in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
                 br(),
                 h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$b("longitudinal data analysis"), " in methodology, including ", 
-                   tags$b("Multilevel Modelling (MLM)"), " and ", tags$b("Structural Equation Modelling (SEM)"), ". Currently, I'm actively holding two quantitative methods research assistant positions at ", 
-                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #bc87b8;text-decoration: underline;">UBC SEM Lab</a>'), "and ", 
+                   tags$b("Multilevel Modelling (MLM)"), " and ", tags$b("Structural Equation Modelling (SEM)"), "."),
+                br(),
+                h4("Currently, I'm actively holding two quantitative methods research assistant positions at UBC Department of Psychology, doing an independent project on ", 
+                   tags$b("RI-CLPM power analysis"), " at", 
+                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #bc87b8;text-decoration: underline;">UBC SEM Lab</a>'), "and my fourth-year honours thesis on the ", 
+                   tags$b("Standardized Mean Differences in MLM"), " at ", 
                    HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #bc87b8;text-decoration: underline;">the Rights Lab</a>'), ", under the supervision of ",
                    HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Victoria Savalei</a>'), "and ", 
                    HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Jason Rights</a>'),
@@ -81,9 +88,10 @@ shinyServer(function(input, output, session) {
                 br(),
                 h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in all kinds of Sudoku contests in mainland China!"),
                 br()
-              )
+              
             )
         )
+      )
     })
     
     
