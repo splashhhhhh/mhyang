@@ -42,7 +42,7 @@ shinyServer(function(input, output, session) {
         sidebarLayout(position = "left",
             sidebarPanel(width = 4,
                          style = "border: 2px solid #927fbf; padding: 10px; border-radius: 10px;",
-                tags$img(src = "headshot.jpg", height = 240, width = 180, 
+                tags$img(src = "www/headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
                 tags$div(
                   style = "display: flex; justify-content: center",
@@ -75,18 +75,20 @@ shinyServer(function(input, output, session) {
                 h4("Born and raised in Beijing, China, I am a fourth-year ", tags$b("Honours Psychology"), "student minoring in ", tags$b("Data Science"), " at the ", tags$b("University of British Columbia (UBC)"), "in Vancouver, Canada."),
                 br(),
                 h4("I aspire to be a ", tags$em("quantitative psychologist / methodologist"), "and my research interest largely lies in the ", tags$b("longitudinal data analysis"), " in methodology, including ", 
-                   tags$b("Multilevel Modelling (MLM)"), " and ", tags$b("Structural Equation Modelling (SEM)"), "."),
+                   tags$b("Multilevel Modelling (MLM)"), " and ", tags$b("Structural Equation Modelling (SEM)"), ". One of my most recent interests is learning to build Shiny App and develop R packages."),
                 br(),
                 h4("Currently, I'm actively holding two quantitative methods research assistant positions at UBC Department of Psychology, doing an independent project on ", 
                    tags$b("RI-CLPM power analysis"), " at", 
-                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #bc87b8;text-decoration: underline;">UBC SEM Lab</a>'), "and my fourth-year honours thesis on the ", 
+                   HTML('<a href="https://ubcsemlab.com/" target="_blank " style="color: #bc87b8;text-decoration: underline;">UBC SEM Lab</a>'), 
+                   "under the guidance of ",
+                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Victoria Savalei</a>'),", ",
+                   "and my fourth-year honours thesis on the ", 
                    tags$b("Standardized Mean Differences in MLM"), " at ", 
                    HTML('<a href="https://rights.psych.ubc.ca/" target="_blank" style="color: #bc87b8;text-decoration: underline;">the Rights Lab</a>'), ", under the supervision of ",
-                   HTML('<a href="https://psych.ubc.ca/profile/victoria-savalei/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Victoria Savalei</a>'), "and ", 
                    HTML('<a href ="https://psych.ubc.ca/profile/jason-rights/" target="_blank" style="color: #927fbf;text-decoration: underline;">Dr. Jason Rights</a>'),
-                   ". One of my most recent interests is learning to build Shiny App and develop R packages."),
+                   "and his Ph.D. student Yingchi Guo. I am deeply grateful to all three of them, whose invaluable mentorship and encouragement constantly inspire me to explore the fascinating world of quantitative psychology."),
                 br(),
-                h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in all kinds of Sudoku contests in mainland China!"),
+                h4("Beyond my enthusiasm for research, music is an important part of my life. I enjoy playing Guzheng (a Chinese traditional string instrument) by arranging modern songs, and covering mandopop, cantopop, and western pop with Ukulele play-along. I am also a big fan of board games and Sudoku, so you may find me participating in Sudoku contests in mainland China!"),
                 br()
               
             )
@@ -253,7 +255,7 @@ shinyServer(function(input, output, session) {
     # education page ----
     output$edupage <- renderUI({
       undergrad <- c("B.A. (Hons.), The University of British Columbia ",
-                     "2021 - 2025 (Expected)",
+                     "2021 - 2025",
                      "Major: Psychology | Minor: Data Science",
                      "Quant Psych GPA: 92/100; Psych Major GPA: 86.5/100; cGPA: 83.9/100",
                      "Quant Psych Coursework: ",
@@ -273,18 +275,18 @@ shinyServer(function(input, output, session) {
       
       tagList(
           # Picture in top right corner
-        tags$div(style = "position: relative; text-align: right;",
-                 tags$img(src = "www/ubclogo.png", width = "150px")
+        tags$div(style = "display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;",
+                 # Text
+                 tags$div(
+                   tags$h4(tags$span(style = "font-size: 19.5px;",
+                                     tags$b(tags$span(style = "color: #bc87b8", undergrad[1])),
+                                     tags$em(style = "margin-left: 50px;", undergrad[2]),
+                                     tags$p(tags$em(style = "color: #bc87b8", undergrad[3]))
+                   ))
+                 ),
+                 # Image
+                 tags$img(src = "www/ubclogo.png", width = "200px", style = "margin-right: 20px;"),
         ),
-          
-        # undergrad overall section
-        tags$h4(tags$span(
-          style = "font-size: 19.5px;",
-          # tags$p(
-          tags$b(tags$span(
-            style = "color: #bc87b8", undergrad[1])),
-          tags$em(style = "margin-left: 50px;", undergrad[2]),
-          tags$p(tags$em(style = "color: #bc87b8", undergrad[3])))),
           tags$h4(tags$b(undergrad[4])),
           tags$h4(style = "font-size: 18px;",tags$u(undergrad[5])),
         # courses
