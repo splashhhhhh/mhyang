@@ -150,7 +150,7 @@ shinyUI(dashboardPage(
           var link = document.createElement('link');
           link.rel = 'icon';
           link.type = 'image/x-icon';
-          link.href = 'www/favicon.ico'; // Path to your favicon
+          link.href = 'favicon.ico'; // Path to your favicon
           document.head.appendChild(link);
         });
         "

@@ -42,7 +42,7 @@ shinyServer(function(input, output, session) {
         sidebarLayout(position = "left",
             sidebarPanel(width = 4,
                          style = "border: 2px solid #927fbf; padding: 10px; border-radius: 10px;",
-                tags$img(src = "www/headshot.jpg", height = 240, width = 180, 
+                tags$img(src = "headshot.jpg", height = 240, width = 180, 
                          style="display: block; margin-left: auto; margin-right: auto;"),
                 tags$div(
                   style = "display: flex; justify-content: center",
@@ -256,8 +256,8 @@ shinyServer(function(input, output, session) {
     output$edupage <- renderUI({
       undergrad <- c("B.A. (Hons.), The University of British Columbia ",
                      "2021 - 2025",
-                     "Major: Psychology | Minor: Data Science",
-                     "Quant Psych GPA: 92/100; Psych Major GPA: 86.5/100; cGPA: 83.9/100",
+                     "Major: Psychology 🧠 | Minor: Data Science 👩🏻‍💻",
+                     "Quant Psych GPA: 92/100 | Psych Major GPA: 86.5/100",
                      "Quant Psych Coursework: ",
                      "Other Relevant Coursework (Math, Stats, CS, DS): ")
       courses1 <- c("PSYC 303 - Tests and Measurements",
@@ -281,11 +281,11 @@ shinyServer(function(input, output, session) {
                    tags$h4(tags$span(style = "font-size: 19.5px;",
                                      tags$b(tags$span(style = "color: #bc87b8", undergrad[1])),
                                      tags$em(style = "margin-left: 50px;", undergrad[2]),
-                                     tags$p(tags$em(style = "color: #bc87b8", undergrad[3]))
+                                     tags$p(style = "font-size: 18px; color: #bc87b8", undergrad[3]),
                    ))
                  ),
                  # Image
-                 tags$img(src = "www/ubclogo.png", width = "200px", style = "margin-right: 20px;"),
+                 tags$img(src = "ubclogo.png", width = "200px", style = "margin-right: 20px;"),
         ),
           tags$h4(tags$b(undergrad[4])),
           tags$h4(style = "font-size: 18px;",tags$u(undergrad[5])),
@@ -438,35 +438,37 @@ shinyServer(function(input, output, session) {
           tags$p(style = "margin-left: 30px", "Shiny, Rmarkdown, lavaan, semTools, simsem, lme4, psych, Tidyverse, ggplot2, dplyr")
         ),
         tags$br(),
-        
+
         tags$h4(
           tags$b("Python Tools & Packages"),
           tags$p(style = "margin-left: 30px", "Pandas, Matplotlib, NumPy, scikit-learn, Altair, Natural Language Toolkit (NLTK), spaCy")
         ),
         tags$br(),
-        
+
         tags$h4(
           tags$b("Other Software & Tools"),
           tags$p(style = "margin-left: 30px", "SPSS, LaTeX, Git, Jupyter, Figma, Qualtrics, Globus")
         ),
         tags$br(),
-        
+
         tags$h4(
           tags$b("Soft Skills for Research"),
           tags$p(style = "margin-left: 30px", "Literature Review, Academic Poster Design, UX/UI Design")
         ),
         tags$br(),
-        
+
         tags$h4(
           tags$b("Languages"),
           tags$p(style = "margin-left: 30px", "Fluent in Mandarin, Conversational in Cantonese")
         ),
         tags$br(),
-        
+
         tags$h4(
           tags$b("Hobbies"),
           tags$p(style = "margin-left: 30px", "Guzheng, Ukulele, Sudoku, Board Games, Music Arrangement, Audio Mixing")
         )
       )
     })
+    
+
 })
