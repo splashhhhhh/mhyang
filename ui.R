@@ -117,7 +117,7 @@ shinyUI(dashboardPage(
       
       /* Change font color for tab panel titles */
         .nav-tabs > li > a {
-          color: #bc87b8; /* Default color for tab panel titles */
+          color: #77628e; /* Default color for tab panel titles */
         }
       
       .skin-blue .main-header .navbar .sidebar-toggle:hover {
@@ -131,14 +131,6 @@ shinyUI(dashboardPage(
             .content-wrapper {
               background-color: #d8e3e7; /* Light AliceBlue color, change this to your desired color */
             }
-        #   /* Change the sidebar background color */
-        #     
-        #   .skin-blue .main-sidebar {
-        # background-color: #666666;
-        #   }
-        #   .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li:hover>a {
-        # background-color: #444444;
-        #   }
         ,')),
         tags$script(HTML(
           "

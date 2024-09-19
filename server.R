@@ -53,19 +53,16 @@ shinyServer(function(input, output, session) {
                 
                 hr(),
                 
-                # h3(tags$b("Education")),
-                # h4("B.A. (Hons), University of British Columbia, 2021 - 2025"),
-                # h5("Major: Psychology"),
-                # h5("Minor: Data Science"),
-                # 
-                # hr(),
-                
                 h3(tags$b("Contact")),
                 h4("Email: "), 
                 tags$p(HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;text-decoration: underline;">muhan211@student.ubc.ca</a>')),
                 tags$p(HTML('<a href="mailto:muhanyangpsych@gmail.com" style="color: #bc87b8;text-decoration: underline;">muhanyangpsych@gmail.com</a>')),
                 br(),
-                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_0915.pdf", icon("file"), "CV", style = "float: right; color: #927fbf", target = "_blank"))
+                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_0915.pdf", 
+                                                   icon("file"), 
+                                                   tags$b(tags$u("CV")), 
+                                                   style = "float: right; color: #927fbf", 
+                                                   target = "_blank"))
 
             ),
             
@@ -103,7 +100,7 @@ shinyServer(function(input, output, session) {
         tags$head(
           tags$style(HTML("
                 #thesistable tbody tr.selected, #pretable tbody tr.selected {
-                    background-color: #ee8572 !important; /* Change background color */
+                    background-color: #77628e !important; /* Change background color */
                     color: white !important;              /* Change text color */
                 }
             "))
@@ -153,27 +150,26 @@ shinyServer(function(input, output, session) {
                          "Assisted graduate students with mock phone screen practice using DSM-V")
 
       tagList(tags$head(
-        # Custom styles for the box headers
         tags$style(HTML("
-      /* Customize the header color for each box */
+      /* Customize the header gradient for each box */
       #box1 .box-header {
-        background-color: #bc87b8 !important;
+        background: linear-gradient(60deg, #bc87b8, #7a4a7d) !important;
         color: white !important;
       }
       #box2 .box-header {
-        background-color: #bdaacf !important;
+        background: linear-gradient(60deg, #bdaacf, #77628e) !important;
         color: white !important;
       }
       #box3 .box-header {
-        background-color: #a5b7d6 !important;
+        background: linear-gradient(60deg, #a5b7d6, #6a819a) !important;
         color: white !important;
       }
       #box4 .box-header {
-        background-color: #778cbb !important;
+        background: linear-gradient(60deg, #778cbb, #4a5e85) !important;
         color: white !important;
       }
-      
-    "))),
+    "))
+      ),
         
         fluidRow(
         # First box
@@ -279,7 +275,7 @@ shinyServer(function(input, output, session) {
                  # Text
                  tags$div(
                    tags$h4(tags$span(style = "font-size: 19.5px;",
-                                     tags$b(tags$span(style = "color: #bc87b8", undergrad[1])),
+                                     tags$b(tags$span(style = "color: #7a4a7d", undergrad[1])),
                                      tags$em(style = "margin-left: 50px;", undergrad[2]),
                                      tags$p(style = "font-size: 18px; color: #bc87b8", undergrad[3]),
                    ))
@@ -328,32 +324,7 @@ shinyServer(function(input, output, session) {
       bulletPoints2 <- c("Attained peer support skills and ethics through 5-week online peer support training", 
                          "Offered weekly 1-2h peer support service to mentees", 
                          "Actively discussed advanced counselling skills with supervisor and other mentors bimonthly")
-      
-      # tagList(
-      #   # First section
-      #   tags$h4(
-      #     tags$b(textLines1[1]),
-      #     tags$em(textLines1[2]),
-      #     tags$p(textLines1[3])),
-      #   tags$h4(tags$ul(class = "custom-bullets",
-      #     lapply(bulletPoints1, function(point) {
-      #       tags$li(point)
-      #     })
-      #   )),
-      #   tags$br(),
-      #   
-      #   # Second section
-      #   tags$h4(
-      #     tags$b(textLines2[1]),
-      #     tags$em(textLines2[2]),
-      #     tags$p(textLines2[3])),
-      #   tags$h4(tags$ul(class = "custom-bullets",
-      #     lapply(bulletPoints2, function(point) {
-      #       tags$li(point)
-      #     })
-      #   )),
-      #   tags$br()
-      # )
+
       tagList(tags$head(
         # Custom styles for the box headers
         tags$style(HTML("
@@ -412,20 +383,20 @@ shinyServer(function(input, output, session) {
     output$awardpage <- renderUI({
       tagList(
       tags$h4(
-        tags$b("Work Learn International Undergraduate Research Award (WLIURA)"),
-        tags$p(tags$em("May - Aug. 2024")),
+        tags$b(style = "color: #7a4a7d", "Work Learn International Undergraduate Research Award (WLIURA)"),
+        tags$p(tags$em(style = "color: #77628e", "May - Aug. 2024")),
         tags$p("$8,500 awarded to international undergraduates to work full-time (35h/week) on research projects under faculty’s supervision")),
       tags$br(),
       
       tags$h4(
-        tags$b("Dean’s List"),
-        tags$p(tags$em("2022 - 2023; 2023 - 2024")),
+        tags$b(style = "color: #7a4a7d", "Dean’s List"),
+        tags$p(tags$em(style = "color: #77628e", "2022 - 2023; 2023 - 2024")),
         tags$p("Awarded by UBC Faculty of Arts to undergraduates with a grade average of 85/100 (A) per year")),
       tags$br(),
       
       tags$h4(
-        tags$b("Honourable Mention"),
-        tags$p(tags$em("Apr. 2024")),
+        tags$b(style = "color: #7a4a7d", "Honourable Mention"),
+        tags$p(tags$em(style = "color: #77628e", "Apr. 2024")),
         tags$p("Awarded by youCode@UBC Hackathon to teams ranking directly subsequent top 3 winners"))
       )
     })
@@ -434,37 +405,37 @@ shinyServer(function(input, output, session) {
     output$skillpage <- renderUI({
       tagList(
         tags$h4(
-          tags$b("R Tools & Packages"),
+          tags$b(style = "color: #7a4a7d", "R Tools & Packages"),
           tags$p(style = "margin-left: 30px", "Shiny, Rmarkdown, lavaan, semTools, simsem, lme4, psych, Tidyverse, ggplot2, dplyr")
         ),
         tags$br(),
 
         tags$h4(
-          tags$b("Python Tools & Packages"),
+          tags$b(style = "color: #7a4a7d", "Python Tools & Packages"),
           tags$p(style = "margin-left: 30px", "Pandas, Matplotlib, NumPy, scikit-learn, Altair, Natural Language Toolkit (NLTK), spaCy")
         ),
         tags$br(),
 
         tags$h4(
-          tags$b("Other Software & Tools"),
+          tags$b(style = "color: #7a4a7d", "Other Software & Tools"),
           tags$p(style = "margin-left: 30px", "SPSS, LaTeX, Git, Jupyter, Figma, Qualtrics, Globus")
         ),
         tags$br(),
 
         tags$h4(
-          tags$b("Soft Skills for Research"),
+          tags$b(style = "color: #4a5e85", "Soft Skills for Research"),
           tags$p(style = "margin-left: 30px", "Literature Review, Academic Poster Design, UX/UI Design")
         ),
         tags$br(),
 
         tags$h4(
-          tags$b("Languages"),
+          tags$b(style = "color: #4a5e85", "Languages"),
           tags$p(style = "margin-left: 30px", "Fluent in Mandarin, Conversational in Cantonese")
         ),
         tags$br(),
 
         tags$h4(
-          tags$b("Hobbies"),
+          tags$b(style = "color: #4a5e85", "Hobbies"),
           tags$p(style = "margin-left: 30px", "Guzheng, Ukulele, Sudoku, Board Games, Music Arrangement, Audio Mixing")
         )
       )
