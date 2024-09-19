@@ -255,12 +255,15 @@ shinyServer(function(input, output, session) {
       undergrad <- c("B.A. (Hons.), The University of British Columbia ",
                      "2021 - 2025 (Expected)",
                      "Major: Psychology | Minor: Data Science",
-                     "Relevant Coursework (Grade): ")
-      courses <- c("PSYC 303 - Tests and Measurements (91)",
-                   "PSYC 359 - Advanced Research Methods in Behavioural Sciences (89)",
-                   "PSYC 417 - Special Topics in Psychology: Applied Regression Analysis (93)",
-                   "PSYC 546J - Seminar in Psychological Problems: Multilevel Model (graduate course) (95)",
-                   "PSYC 546Y - Seminar in Psychological Problems: Structural Equation Model I (graduate course; self-learned through 2021W materials)",
+                     "Quant Psych GPA: 92/100; Psych Major GPA: 86.5/100; cGPA: 83.9/100",
+                     "Quant Psych Coursework: ",
+                     "Other Relevant Coursework (Math, Stats, CS, DS): ")
+      courses1 <- c("PSYC 303 - Tests and Measurements",
+                   "PSYC 359 - Advanced Research Methods in Behavioural Sciences",
+                   "PSYC 417 - Special Topics in Psychology: Applied Regression Analysis",
+                   "PSYC 546J - Seminar in Psychological Problems: Multilevel Model (graduate course)",
+                   "PSYC 546Y - Seminar in Psychological Problems: Structural Equation Model I (graduate course; self-learned through 2021W materials)")
+      courses2 <- c(
                    "STAT 201 - Statistical Inference for Data Science",
                    "STAT 301 - Statistical Modelling for Data Science",
                    "MATH 221 - Matrix Algebra",
@@ -269,7 +272,11 @@ shinyServer(function(input, output, session) {
                    "CPSC 368  - Databases in Data Science (ongoing)")
       
       tagList(
-        
+          # Picture in top right corner
+        tags$div(style = "position: relative; text-align: right;",
+                 tags$img(src = "www/ubclogo.png", width = "150px")
+        ),
+          
         # undergrad overall section
         tags$h4(tags$span(
           style = "font-size: 19.5px;",
@@ -278,16 +285,22 @@ shinyServer(function(input, output, session) {
             style = "color: #bc87b8", undergrad[1])),
           tags$em(style = "margin-left: 50px;", undergrad[2]),
           tags$p(tags$em(style = "color: #bc87b8", undergrad[3])))),
-          tags$h4(tags$u(undergrad[4])
-        ),
+          tags$h4(tags$b(undergrad[4])),
+          tags$h4(style = "font-size: 18px;",tags$u(undergrad[5])),
         # courses
-        tags$h4(tags$ul(class = "custom-bullets",
-          lapply(courses, function(point) {
+        tags$h4(style = "font-size: 18px;", tags$ul(class = "custom-bullets",
+          lapply(courses1, function(point) {
             tags$li(point)
           })
         )
+      ),
+        tags$h4(style = "font-size: 18px;", tags$u(undergrad[6])),
+      tags$h4(style = "font-size: 18px;", tags$ul(class = "custom-bullets",
+                      lapply(courses2, function(point) {
+                        tags$li(point)
+                      })
       ))
-      
+      )
     })
     
     

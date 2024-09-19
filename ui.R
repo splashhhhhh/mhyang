@@ -47,7 +47,7 @@ shinyUI(dashboardPage(
                      menuSubItem("Skills", tabName = "skills"),
                      menuSubItem("Awards", tabName = "awards"),
                      menuSubItem("Activities", tabName = "activities")),
-            menuItem(text = "CV", tabName = "cv", icon = icon("code")),
+            # menuItem(text = "CV", tabName = "cv", icon = icon("code")),
             tags$div(
               class = "sidebar-footer",
               HTML("Template adapted from © <a href='https://github.com/Xiaozhu-Zhang1998/website-using-shiny' target='_blank'>️Xiaozhu Zhang</a>")
@@ -170,10 +170,10 @@ shinyUI(dashboardPage(
              
              tabItem(tabName = "awards", uiOutput("awardpage")),
              
-             tabItem(tabName = "activities", uiOutput("actpage")),
-             
-             tabItem(tabName = "cv", tags$iframe(style = "height: 100vh; width: 100%; boarder: none;",
-                                                 src = "Muhan_Yang_CV_0915.pdf"))
+             tabItem(tabName = "activities", uiOutput("actpage"))
+# 
+#              tabItem(tabName = "cv", tags$iframe(style = "height: 100vh; width: 100%; boarder: none;",
+#                                                  src = "Muhan_Yang_CV_0915.pdf"))
 
         )
 
