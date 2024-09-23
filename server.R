@@ -8,6 +8,7 @@ library(shinydashboardPlus)
 library(ggplot2)
 library(bslib)
 library(DT)
+library(reporter)
 
 shinyServer(function(input, output, session) {
     
@@ -58,7 +59,7 @@ shinyServer(function(input, output, session) {
                 tags$p(HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;text-decoration: underline;">muhan211@student.ubc.ca</a>')),
                 tags$p(HTML('<a href="mailto:muhanyangpsych@gmail.com" style="color: #bc87b8;text-decoration: underline;">muhanyangpsych@gmail.com</a>')),
                 br(),
-                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_0915.pdf", 
+                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_092224.pdf", 
                                                    icon("file"), 
                                                    tags$b(tags$u("CV")), 
                                                    style = "float: right; color: #927fbf", 
@@ -126,27 +127,25 @@ shinyServer(function(input, output, session) {
     
     # experience page ----
     output$exppage <- renderUI({
-      bulletPoints1 <- c("Mastered SEM basics through PSYC 546Y SEM I graduate course materials", 
-                         "Conducted a literature review on Random-Intercepts Cross-Lagged Panel Model (RI-CLPM) simulation",
-                         "Extended the simulation in Mulder (2023) to other conditions and conducted a report",
-                         "Self-learned R Shiny",
-                         "Will be conducting an independent project on the simulation of RI-CLPM and build a Shiny App")
+      bulletPoints1 <- c("Designing and leading the independent project examining Random Intercept Cross-Lagged Panel Model (RI-CLPM) power analysis via simulation: conducted a literature review on the RI-CLPM simulation and a report of extending the simulation analysis in Mulder (2023) to other parameters and conditions")
       
       # Section 2: Text lines followed by bullet points
-      bulletPoints2 <- c("Skilled in Multilevel Modelling (MLM) via literature reading, biweekly discussion with graduate student, and PSYC 546J MLM graduate course", 
-                         "Performed a literature review with 100+ articles on Intra-Class Correlation (ICC) in MLM", 
-                         "Drafted an empirical example and got training in running simulation of the ICC project",
-                         "Assisted adjusted R-squared manuscript: searched related literature and proofread before submission")
+      bulletPoints2 <- c("Facilitating project examining the property of Intra-class Correlations (ICCs) in MLM, 
+                         conducting literature review over 100+ articles to map out the current utilization and report standards of ICCs in empirical studies, 
+                         and provided an empirical example of interpreting newly proposed ICCs", 
+                         "Conducted literature review for the current advanced of R-squared adjustment methods for MLM, 
+                         and proofread the manuscript")
       
       # Section 3: Text lines followed by bullet points
-      bulletPoints3 <- c("Completed data entry based on interview responses and data cleaning using SPSS", 
-                         "Guided and mentored junior lab members to use SPSS and R in data cleaning", 
-                         "Contacted parents, scheduled sessions, collected consents, and managed consent forms and session recordings on Globus",
-                         "Coordinated a team of 5 to draft the APS Convention 2024 poster submission")
+      bulletPoints3 <- c("Entered and cleaned data in the Children’s Integrity project, 
+                         and mentored junior lab members to clean data using SPSS and R", 
+                         "Managed parents contacting, study sessions scheduling, consent forms collection, 
+                         and session video recordings on Globus")
       
       # Section 4: Text lines followed by bullet points
-      bulletPoints4 <- c("Collected and entered ∼80 pieces of data in Teen Studies project and TSST Simulated Online Interview project, including saliva sample collection", 
-                         "Conducted Trier Social Stress Test (TSST) interview, parent reconsent, and medication record entry", 
+      bulletPoints4 <- c("Conducted ∼80 sessions of the Trier Social Stress Test (TSST) interview, parent re-consent, 
+                         and medication record check-up and entry in Teen Studies project and TSST Simulated Online Interview project, 
+                         including saliva sample collection", 
                          "Assisted graduate students with mock phone screen practice using DSM-V")
 
       tagList(tags$head(
@@ -252,7 +251,7 @@ shinyServer(function(input, output, session) {
     output$edupage <- renderUI({
       undergrad <- c("B.A. (Hons.), The University of British Columbia ",
                      "2021 - 2025",
-                     "Major: Psychology 🧠 | Minor: Data Science 👩🏻‍💻",
+                     "Major: Psychology 🧠 | Minor: Data Science 💻",
                      "Quant Psych GPA: 92/100 | Psych Major GPA: 86.5/100",
                      "Quant Psych Coursework: ",
                      "Other Relevant Coursework (Math, Stats, CS, DS): ")
@@ -430,7 +429,7 @@ shinyServer(function(input, output, session) {
 
         tags$h4(
           tags$b(style = "color: #4a5e85", "Languages"),
-          tags$p(style = "margin-left: 30px", "Fluent in Mandarin, Conversational in Cantonese")
+          tags$p(style = "margin-left: 30px", "Fluent in Mandarin & English, Conversational in Cantonese")
         ),
         tags$br(),
 
