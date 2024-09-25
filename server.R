@@ -59,7 +59,7 @@ shinyServer(function(input, output, session) {
                 tags$p(HTML('<a href="mailto:muhan211@student.ubc.ca" style="color: #bc87b8;text-decoration: underline;">muhan211@student.ubc.ca</a>')),
                 tags$p(HTML('<a href="mailto:muhanyangpsych@gmail.com" style="color: #bc87b8;text-decoration: underline;">muhanyangpsych@gmail.com</a>')),
                 br(),
-                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_092224.pdf", 
+                h4("Phone: (604) 727-0895", tags$a(href = "https://muhanyang.shinyapps.io/quantpsych/_w_cdf5e54e/Muhan_Yang_CV_092424.pdf", 
                                                    icon("file"), 
                                                    tags$b(tags$u("CV")), 
                                                    style = "float: right; color: #927fbf", 

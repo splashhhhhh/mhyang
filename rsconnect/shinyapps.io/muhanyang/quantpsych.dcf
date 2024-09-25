@@ -5,7 +5,7 @@ account: muhanyang
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12716405
-bundleId: 9132965
+bundleId: 9142799
 url: https://muhanyang.shinyapps.io/quantpsych/
 version: 1
 asMultiple: FALSE
