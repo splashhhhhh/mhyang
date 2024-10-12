@@ -127,7 +127,11 @@ shinyServer(function(input, output, session) {
     
     # experience page ----
     output$exppage <- renderUI({
-      bulletPoints1 <- c("Designing and leading the independent project examining Random Intercept Cross-Lagged Panel Model (RI-CLPM) power analysis via simulation: conducted a literature review on the RI-CLPM simulation and a report of extending the simulation analysis in Mulder (2023) to other parameters and conditions")
+      bulletPoints1 <- c("Designing and leading the independent project examining 
+                         Random Intercept Cross-Lagged Panel Model (RI-CLPM) power analysis via simulation: 
+                         conducted a literature review on the RI-CLPM simulation 
+                         and a report of extending the simulation analysis in Mulder (2023) to other parameters and conditions,
+                          and replicating Mulder (2023) results by using simsem package")
       
       # Section 2: Text lines followed by bullet points
       bulletPoints2 <- c("Facilitating project examining the property of Intra-class Correlations (ICCs) in MLM, 
@@ -182,7 +186,7 @@ shinyServer(function(input, output, session) {
           # style = "background-color: #FF6347; color: white;",
           width = 12,
           tags$h4(
-            tags$p("January 2024 - Present")),
+            tags$p("January 2024 – Present")),
           tags$ul(
             lapply(bulletPoints1, function(point) {
               tags$li(style = "font-size: 16px;", point)
@@ -200,7 +204,7 @@ shinyServer(function(input, output, session) {
           collapsible = TRUE,
           width = 12,
           tags$h4(
-            tags$p("September 2023 - Present")),
+            tags$p("September 2023 – Present")),
           tags$ul(
             lapply(bulletPoints2, function(point) {
               tags$li(style = "font-size: 16px;", point)
@@ -218,7 +222,7 @@ shinyServer(function(input, output, session) {
           collapsible = TRUE,
           width = 12,
           tags$h4(
-            tags$p("September 2023 - June 2024")),
+            tags$p("September 2023 – June 2024")),
           tags$ul(
             lapply(bulletPoints3, function(point) {
               tags$li(style = "font-size: 16px;", point)
@@ -236,7 +240,7 @@ shinyServer(function(input, output, session) {
           collapsible = TRUE,
           width = 12,
           tags$h4(
-            tags$p("September 2022 - September 2023")),
+            tags$p("September 2022 – September 2023")),
           tags$ul(
             lapply(bulletPoints4, function(point) {
               tags$li(style = "font-size: 16px;", point)
@@ -305,22 +309,30 @@ shinyServer(function(input, output, session) {
     # activity page ----
     output$actpage <- renderUI({
       textLines1 <- c(
+        "UBC Psychology Honours Mentorship Program | ",
+        "Fourth-Year Honours Student Mentor",
+        "Oct. 2024 – Present"
+      )
+      bulletPoints1 <- c("Mentored two third-year honours students to navigate through their degree: 
+                         offered tips on taking quantitative undergraduate courses, 
+                         communicating with supervisors and graduate students, 
+                         seeking lab positions, and preparing graduate school application")
+      
+      textLines2 <- c(
         "youCode@UBC: 24-Hour Hackathon | ",
         "UX/UI Designer",
         "Apr. 6-7, 2024"
       )
-      bulletPoints1 <- c("Implemented UX/UI design in the team of 4 by creating an interactive and functional prototype with a campus map, using Figma and Procreate", 
+      bulletPoints2 <- c("Implemented UX/UI design in the team of 4 by creating an interactive and functional prototype with a campus map, using Figma and Procreate", 
                          "Built a phone app for locating outdoor activities on campus map with reward features",
                          "Maintained the overall version control of the team via Git")
       
-      
-      # Section 2: Text lines followed by bullet points
-      textLines2 <- c(
+      textLines3 <- c(
         "Mood Psychology Mental Health Support Group UBC Branch | ",
         "Peer Support Mentor",
         "Jul. 2022 – May 2023"
       )
-      bulletPoints2 <- c("Attained peer support skills and ethics through 5-week online peer support training", 
+      bulletPoints3 <- c("Attained peer support skills and ethics through 5-week online peer support training", 
                          "Offered weekly 1-2h peer support service to mentees", 
                          "Actively discussed advanced counselling skills with supervisor and other mentors bimonthly")
 
@@ -335,13 +347,17 @@ shinyServer(function(input, output, session) {
       #box2 .box-header {
         background-color: #bdaacf !important;
         color: white !important;
+      }
+      #box3 .box-header {
+        background-color: #a5b7d6 !important;
+        color: white !important;
       }"))),
       
       fluidRow(
         # First box
         box(
           id = "box1",
-          title = "youCode@UBC: 24-Hour Hackathon | UX/UI Designer",
+          title = "UBC Psychology Honours Mentorship Program | Fourth-Year Honours Student Mentor",
           # status = "primary",
           solidHeader = TRUE,
           headerBorder = TRUE,
@@ -349,7 +365,7 @@ shinyServer(function(input, output, session) {
           # color = "#605ca8",
           width = 12,
           tags$h4(
-            tags$p("Apr. 6-7, 2024")),
+            tags$p("Oct. 2024 – Present")),
           tags$ul(
             lapply(bulletPoints1, function(point) {
               tags$li(style = "font-size: 16px;", point)
@@ -360,6 +376,25 @@ shinyServer(function(input, output, session) {
         # Second box
         box(
           id = "box2",
+          title = "youCode@UBC: 24-Hour Hackathon | UX/UI Designer",
+          # status = "primary",
+          solidHeader = TRUE,
+          headerBorder = TRUE,
+          collapsible = TRUE,
+          # color = "#605ca8",
+          width = 12,
+          tags$h4(
+            tags$p("Apr. 6-7, 2024")),
+          tags$ul(
+            lapply(bulletPoints2, function(point) {
+              tags$li(style = "font-size: 16px;", point)
+            })
+          )
+        ),
+        
+        # Second box
+        box(
+          id = "box3",
           title = "Mood Psychology Mental Health Support Group UBC Branch | Peer Support Mentor",
           # status = "info",
           solidHeader = TRUE,
@@ -369,7 +404,7 @@ shinyServer(function(input, output, session) {
           tags$h4(
             tags$p("Jul. 2022 – May 2023")),
           tags$ul(
-            lapply(bulletPoints2, function(point) {
+            lapply(bulletPoints3, function(point) {
               tags$li(style = "font-size: 16px;", point)
             })
           )
